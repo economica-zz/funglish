@@ -1,4 +1,9 @@
 Funglish::Application.routes.draw do
+  root :to => "top#index"
+
+  match "terms_of_service" => "terms_of_service#index"
+  match "privacy_policy" => "privacy_policy#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
