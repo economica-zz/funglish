@@ -3,6 +3,7 @@ Funglish::Application.routes.draw do
 
   match "terms_of_service" => "terms_of_service#index"
   match "privacy_policy" => "privacy_policy#index"
+  match "act_of_spec_com_tran" => "act_of_spec_com_tran#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,2 @@
+module ActOfSpecComTranHelper
+end
