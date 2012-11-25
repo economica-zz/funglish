@@ -43,3 +43,11 @@ ja:
     退会の申し出のご連絡を頂いた後、14営業日以内に退会処理を実施致します。
   defectives_lbl: "不良品の取扱条件"
   defectives_val: "教材(テキスト・ソフト・その他)に不良品がございましたら、教材到着後1週間以内に弊社までメールにてご連絡ください。交換が必要な場合には、着払いにてご返却いただき次第、良品と交換させていただきます。"
+  company_name_lbl: "会社名"
+  date_of_establishment_lbl: "設立年月日"
+  date_of_establishment_val: "平成24年9月3日"
+  board_member_lbl: "役員"
+  board_member_val: "代表取締役 吉田 啓二"
+  address_of_the_head_office_lbl: "本店所在地"
+  contact_information_lbl: "連絡先"
+  inquiry_content: "ご質問、ご意見、ご要望等ございましたら、メールアドレス「info@funglish.jp」までご連絡をお願い致します。"

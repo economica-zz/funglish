@@ -4,3 +4,4 @@
 User-Agent: *
 Disallow: /privacy_policy
 Disallow: /act_of_spec_com_tran
+Disallow: /company_outline
