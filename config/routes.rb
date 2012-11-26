@@ -6,6 +6,10 @@ Funglish::Application.routes.draw do
   match "act_of_spec_com_tran" => "act_of_spec_com_tran#index"
   match "company_outline" => "company_outline#index"
   match "inquiry" => "inquiry#index"
+  match "auth" => "auth#login_signup"
+  match "logout" => "logout#index"
+
+  resources :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

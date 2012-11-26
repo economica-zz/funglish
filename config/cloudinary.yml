@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hmb84ofqb
+  api_key: '465747456237747'
+  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  enhance_image_tag: true
+  static_image_support: true
+production:
+  cloud_name: hmb84ofqb
+  api_key: '465747456237747'
+  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hmb84ofqb
+  api_key: '465747456237747'
+  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  enhance_image_tag: true
+  static_image_support: true

@@ -8,6 +8,12 @@ gem 'rails', '3.2.7'
 gem 'pg'
 gem 'thin'
 gem 'twitter-bootstrap-rails'
+gem 'rails-i18n'
+gem 'oauth'
+gem 'facebook_oauth'
+gem 'certified'
+gem 'dalli'
+gem 'cloudinary'
 
 # Gems used only for assets and not required
 # in production environments by default.

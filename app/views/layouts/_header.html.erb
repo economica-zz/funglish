@@ -1,5 +1,28 @@
 <div class="header-wrapper">
   <div class="header-content">
-    <div class="header-title"><%= link_to t("header_title"), root_path %></div>
+    <span class="header-title"><%= link_to t("header_title"), root_path %></span>
+    <span class="header-right">
+      <table class="table-middle table-header">
+        <tr>
+          <% if @login_user.present? %>
+            <td>
+              <a href="/users/<%= @login_user.facebook_id %>">
+                <%= facebook_profile_image_tag(@login_user.facebook_id + ".jpg", :width => 32, :height => 32, :crop => :fill, :gravity => :north_west) %>
+              </a>
+            </td>
+            <td>
+              <%= link_to @login_user.user_name, "/users/" + @login_user.facebook_id, :class => "header-user-name" %>
+            </td>
+            <td>
+              <%= link_to t("logout"), "/logout" %>
+            </td>
+          <% else %>
+            <td>
+              <%= link_to t("login_signup"), "/auth" %>
+            </td>
+          <% end %>
+        </tr>
+      </table>
+    </span>
   </div>
 </div>

@@ -34,4 +34,14 @@ Funglish::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Use a different cache store in production
+  config.cache_store = :dalli_store
+
+  ENV['FB_APP_ID'] = "413917385346588"
+  ENV['FB_APP_SECRET'] = "13fa2c4adeab3b12e6acaf83dc15d7c6"
+  ENV['MEMCACHE_PASSWORD'] = "nN3acLyO2SwJqcz0"
+  ENV['MEMCACHE_SERVERS'] = "mc7.ec2.northscale.net"
+  ENV['MEMCACHE_USERNAME'] = "app9444032%40heroku.com"
+  ENV['CLOUDINARY_URL'] = "cloudinary://465747456237747:hpdr55olQH_UVJtcHzsR9EarYOE@hmb84ofqb"
 end

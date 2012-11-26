@@ -63,12 +63,28 @@ div.body-content {
   margin: auto;
 }
 
-div.header-title {
+span.header-title {
   font-size: 40px;
-  padding-top: 20px;
+  position: relative;
+  top: 20px;
   a:hover {
     border-bottom: none;
   }
+}
+
+span.header-right {
+  float: right;
+}
+
+table.table-header {
+  position: relative;
+  top: 14px;
+  height: 34px;
+}
+
+a.header-user-name {
+  margin-left: 4px;
+  margin-right: 16px;
 }
 
 div.push {
@@ -121,6 +137,116 @@ span.article {
   width: 276px;
 }
 
+.table tbody tr td.chk_agree_terms_privacy {
+  text-align: center;
+}
+
+input#user_terms_of_service_and_privacy_policy {
+  margin: 0px;
+}
+
+.required {
+  color: #8c1615;
+}
+
+.secret {
+  color: #696969;
+}
+
+td.td-user-label {
+  width: 240px;
+}
+
+td.td-sei {
+  border-right: none;
+  width: 60px;
+  text-align: center;
+}
+
+td.td-last_name {
+  border-left: none;
+  border-right: none;
+}
+
+td.td-mei {
+  border-left: none;
+  border-right: none;
+  width: 60px;
+  text-align: center;
+}
+
+td.td-first_name {
+  border-left: none;
+}
+
+input#user_last_name, input#user_first_name, input#user_last_name_kana, input#user_first_name_kana {
+  width: 238px;
+}
+
+input#user_location_city, input#user_email_address, input#user_telephone_number, input#user_skype_name, input#user_google_account, textarea#user_self_introduction {
+  width: 98%;
+}
+
+select#user_sex_id {
+  width: 100px;
+}
+
+select#user_birthday_1i {
+  width: 100px;
+}
+
+select#user_birthday_2i, select#user_birthday_3i {
+  width: 80px;
+  margin-left: 10px;
+}
+
+select#user_nationality_country_id, select#user_location_country_id, select#user_location_prefecture_id, select#user_occupation_id, select#user_time_zone_id {
+  width: 400px;
+}
+
+table.table-user {
+  margin-bottom: 6px;
+}
+
+div.field_with_errors {
+  background-color: #cf5a59;
+  padding: 4px;
+}
+
+ul.error {
+  color: #8c1615;
+  font-weight: bold;
+}
+
+table.table-user-navs {
+  margin-bottom: 12px;
+}
+
+h1.navs-user-name {
+  margin-left: 10px;
+  padding-bottom: 0px;
+}
+
+.nav-tabs {
+  border-color: #8c1615;
+}
+
+.nav-tabs > .active > a {
+  border-color: #8c1615;
+  border-bottom-color: transparent;
+  color: #000000;
+}
+
+.nav-tabs > .active > a:hover {
+  border-color: #8c1615;
+  border-bottom-color: transparent;
+  color: #000000;
+}
+
+a.btn {
+  margin-bottom: 16px;
+}
+
 // Set the correct sprite paths
 @iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
 @iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
@@ -146,3 +272,5 @@ span.article {
 //
 // Example:
 // @linkColor: #ff0000;
+@btnPrimaryBackground: #cf5a59;
+@btnPrimaryBackgroundHighlight: #8c1615;

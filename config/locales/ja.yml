@@ -51,3 +51,57 @@ ja:
   address_of_the_head_office_lbl: "本店所在地"
   contact_information_lbl: "連絡先"
   inquiry_content: "ご質問、ご意見、ご要望等ございましたら、メールアドレス「info@funglish.jp」までご連絡をお願い致します。"
+  login_signup: "Facebookでログイン/アカウント登録（無料）"
+  logout: "ログアウト"
+  account_register: "アカウント登録"
+  agree: '<a href="/terms_of_service" target="_blank">利用規約</a>と<a href="/privacy_policy" target="_blank">プライバシーポリシー</a>の内容に同意する。'
+  register: "登録"
+  name: "氏名"
+  sei: "（姓）"
+  mei: "（名）"
+  sei_kana: "（セイ）"
+  mei_kana: "（メイ）"
+  required: "（必須）"
+  secret: "（非公開）"
+  facebook: "Facebook"
+  edit: "編集"
+  user_form_explanatioin: |-
+    ※ Skypeを利用して他のユーザーと会話を行う方は、「Skype名」欄をご入力ください。
+    ※ Google+ハングアウトを利用して他のユーザーと会話を行う方は、「Googleアカウント（Gmailアドレス）」欄をご入力ください。
+    ※ 他のユーザーと円滑に交流できるようにするために、「自己紹介」欄へ、英語を学習している理由・目的と、現在の英語力を記入することを推奨します。
+  year: "年"
+  month: "月"
+  day: "日"
+  profile: "プロフィール"
+  beginning_parenthesis: "（"
+  enging_parenthesis: "）"
+  edit_profile: "プロフィールの編集"
+  save: "保存"
+  activerecord:
+    attributes:
+      user:
+        last_name: "氏名（姓）"
+        first_name: "氏名（名）"
+        last_name_kana: "氏名（セイ）"
+        first_name_kana: "氏名（メイ）"
+        sex_id: "性別"
+        birthday: "生年月日"
+        nationality_country_id: "国籍"
+        occupation_id: "職業"
+        location_country_id: "所在地（国）"
+        location_prefecture_id: "所在地（都道府県）"
+        location_city: "所在地（市区町村）"
+        email_address: "Eメールアドレス"
+        telephone_number: "電話番号"
+        skype_name: "Skype名"
+        google_account: "Googleアカウント（Gmailアドレス）"
+        self_introduction: "自己紹介"
+        terms_of_service_and_privacy_policy: "利用規約とプライバシーポリシーの内容"
+    errors:
+      messages:
+        accepted: "に同意してください。"
+      models:
+        user:
+          attributes:
+            email_address:
+              email_address_already_exists: "は他のユーザによって既に使用されています。"

@@ -1,0 +1,88 @@
+<%
+  sex_choices = Utils.get_choices("Sex", "id")
+  country_choices = Utils.get_choices("Country", "id")
+  occupation_choices = Utils.get_choices("Occupation", "disp_seq")
+  prefecture_choices = Utils.get_choices("Prefecture", "id")
+%>
+<% unless @user.errors.empty? %>
+  <ul class="error">
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+<table class="table table-bordered table-condensed table-middle table-user">
+  <tbody>
+    <tr>
+      <td class="td-label td-user-label" rowspan="2"><%= t("name") %><span class="required"><%= t("required") %></span></td>
+      <td class="td-sei"><%= t("sei") %></td>
+      <td class="td-last_name"><%= form.text_field :last_name %></td>
+      <td class="td-mei"><%= t("mei") %></td>
+      <td class="td-first_name"><%= form.text_field :first_name %></td>
+    </tr>
+    <tr>
+      <td class="td-sei"><%= t("sei_kana") %></td>
+      <td class="td-last_name"><%= form.text_field :last_name_kana %></td>
+      <td class="td-mei"><%= t("mei_kana") %></td>
+      <td class="td-first_name"><%= form.text_field :first_name_kana %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.sex_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :sex_id, sex_choices, {:include_blank => true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.birthday") %></td>
+      <td colspan="4"><%= form.date_select :birthday, {start_year: 1900, end_year: (Time.now.year + 1), :order => [:year, :month, :day], :prompt => {:year => t("year"), :month => t("month"), :day => t("day")}, use_month_numbers: true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.nationality_country_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :nationality_country_id, country_choices, {:include_blank => true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.occupation_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :occupation_id, occupation_choices, {:include_blank => true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_country_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :location_country_id, country_choices, {:include_blank => true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_prefecture_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :location_prefecture_id, prefecture_choices, {:include_blank => true} %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_city") %></td>
+      <td colspan="4"><%= form.text_field :location_city %></td>
+    </tr>
+    <tr>
+      <td class="td-label">
+        <%= t("activerecord.attributes.user.email_address") %>
+        <span class="required"><%= t("required") %></span>
+        <span class="secret"><%= t("secret") %></span>
+      </td>
+      <td colspan="4"><%= form.text_field :email_address %></td>
+    </tr>
+    <tr>
+      <td class="td-label">
+        <%= t("activerecord.attributes.user.telephone_number") %>
+        <span class="secret"><%= t("secret") %></span>
+      </td>
+      <td colspan="4"><%= form.text_field :telephone_number %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.skype_name") %></td>
+      <td colspan="4"><%= form.text_field :skype_name %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.google_account") %></td>
+      <td colspan="4"><%= form.text_field :google_account %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.self_introduction") %></td>
+      <td colspan="4"><%= form.text_area :self_introduction, rows: 8 %></td>
+    </tr>
+  </tbody>
+</table>
+<p><%= t("user_form_explanatioin").gsub("\n", "<br>").html_safe %></p>
+<%= form.hidden_field :facebook_id %>
+<%= form.hidden_field :facebook_link %>

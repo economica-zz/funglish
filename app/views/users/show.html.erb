@@ -1,0 +1,70 @@
+<%= render "/users/navs" %>
+<table class="table table-bordered table-condensed table-middle">
+  <tbody>
+    <tr>
+      <td class="td-label td-user-label"><%= t("name") %></td>
+      <td><%= @user.user_name_add_kana %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.sex_id") %></td>
+      <td><%= @user.sex.name if @user.sex.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.birthday") %></td>
+      <td><%= l @user.birthday if @user.birthday.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.nationality_country_id") %></td>
+      <td><%= @user.nationality_country.name if @user.nationality_country.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.occupation_id") %></td>
+      <td><%= @user.occupation.name if @user.occupation.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_country_id") %></td>
+      <td><%= @user.location_country.name if @user.location_country.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_prefecture_id") %></td>
+      <td><%= @user.location_prefecture.name if @user.location_prefecture.present? %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.location_city") %></td>
+      <td><%= @user.location_city %></td>
+    </tr>
+    <% if @is_show_login_user %>
+      <tr>
+        <td class="td-label">
+          <%= t("activerecord.attributes.user.email_address") %>
+          <span class="secret"><%= t("secret") %></span>
+        </td>
+        <td><%= @user.email_address %></td>
+      </tr>
+      <tr>
+        <td class="td-label">
+          <%= t("activerecord.attributes.user.telephone_number") %>
+          <span class="secret"><%= t("secret") %></span>
+        </td>
+        <td><%= @user.telephone_number %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.skype_name") %></td>
+      <td><%= @user.skype_name %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.google_account") %></td>
+      <td><%= @user.google_account %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.self_introduction") %></td>
+      <td><%= h(@user.self_introduction).gsub("\n", "<br>").html_safe %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("facebook") %></td>
+      <td><%= link_to @user.facebook_link, @user.facebook_link, :target => "_blank" %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to t("edit"), "/users/" + @login_user.facebook_id + "/edit", :class => "btn btn-primary" if @is_show_login_user %>

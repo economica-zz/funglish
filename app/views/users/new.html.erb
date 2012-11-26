@@ -1,0 +1,17 @@
+<h1><%= t("account_register") %></h1>
+<%= form_for @user do |form| %>
+  <%= render "form", form: form %>
+  <table class="table table-bordered table-condensed table-middle">
+    <tbody>
+      <tr>
+        <td class="chk_agree_terms_privacy">
+          <%= form.check_box :terms_of_service_and_privacy_policy %>
+        </td>
+        <td><%= t("agree").html_safe %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= form.hidden_field :terms_of_service_id %>
+  <%= form.hidden_field :privacy_policy_id %>
+  <p><%= form.submit t("register"), :class => "btn btn-primary" %></p>
+<% end %>

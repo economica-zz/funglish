@@ -1,0 +1,16 @@
+<table class="table-middle table-user-navs">
+  <tr>
+    <td>
+      <%= facebook_profile_image_tag(@user.facebook_id + ".jpg", :width => 120, :height => 120, :crop => :fill, :gravity => :north_west) %>
+    </td>
+    <td>
+      <h1 class="navs-user-name"><%= @user.user_name_add_kana %></h1>
+    </td>
+  <tr>
+</table>
+
+<ul class="nav nav-tabs nav-user">
+  <li class="<%= 'active' if @active_tab == 'info' %>">
+    <a href="/users/<%= @user.facebook_id %>"><%= t("profile") %></a>
+  </li>
+</ul>
