@@ -1,0 +1,93 @@
+<div class="top-main">
+  <table class="table-top-main">
+    <tbody>
+      <tr>
+        <td class="td-left-top-main">
+          <h1 class="h1-top-main"><%= t("top_main_header") %></h1>
+          <p class="p-top-main-content"><%= t("top_main_content_1").gsub("\n", "<br>").html_safe %></p>
+          <p class="p-top-main-content"><%= t("top_main_content_2").gsub("\n", "<br>").html_safe %></p>
+          <p class="p-top-main-content"><%= t("top_main_content_3").gsub("\n", "<br>").html_safe %></p>
+        </td>
+        <td class="td-center-top-main">
+        </td>
+        <td class="td-right-top-main">
+          <%= image_tag("top.jpg", size: "345x230", alt: "Top", align: "top") %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="top-how-it-works">
+  <h2 class="h2-top"><%= t("top_how_it_works") %></h2>
+  <table class="table-top-how-it-works">
+    <tbody>
+      <tr>
+        <td class="td-top-how-it-works-content">
+          <div class="div-top-how-it-works">
+            <table class="table-hiw-inner">
+              <tbody>
+                <tr class="tr-hiw-upper">
+                  <td>
+                    <span class="hiw-header"><%= t("how_it_works_1_header") %></span>
+                  </td>
+                </tr>
+                <tr class="tr-hiw-lower">
+                  <td>
+                    <%= image_tag("hiw1.jpg", size: "280x200", alt: "How It Works 1", align: "top") %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+        <td class="td-top-how-it-works-space">
+        </td>
+        <td class="td-top-how-it-works-content">
+          <div class="div-top-how-it-works">
+            <table class="table-hiw-inner">
+              <tbody>
+                <tr class="tr-hiw-upper">
+                  <td>
+                    <span class="hiw-header"><%= t("how_it_works_2_header") %></span>
+                  </td>
+                </tr>
+                <tr class="tr-hiw-lower">
+                  <td>
+                    <%= image_tag("hiw2.jpg", size: "285x200", alt: "How It Works 2", align: "top") %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+        <td class="td-top-how-it-works-space">
+        </td>
+        <td class="td-top-how-it-works-content">
+          <div class="div-top-how-it-works">
+            <table class="table-hiw-inner">
+              <tbody>
+                <tr class="tr-hiw-upper">
+                  <td>
+                    <span class="hiw-header"><%= t("how_it_works_3_header") %></span>
+                  </td>
+                </tr>
+                <tr class="tr-hiw-lower">
+                  <td>
+                    <%= image_tag("hiw3.jpg", size: "285x200", alt: "How It Works 3", align: "top") %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+         </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="top-lesson-videos">
+  <h2 class="h2-top"><%= t("top_lesson_videos") %></h2>
+  <p class="p-lesson-videos-explanation"><%= t("lesson-videos-explanation")%></p>
+</div>
+<div class="top-login-signup">
+  <%= link_to t("login_signup"), "/auth", :class => "btn btn-primary btn-large" %>
+</div>
