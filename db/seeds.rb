@@ -300,4 +300,10 @@ ActiveRecord::Base.connection.reset_pk_sequence!("privacy_policies")
 PrivacyPolicy.create(content: PrivacyPolicy001::CONTENT, deleted: false)
 ActiveRecord::Base.connection.execute("VACUUM ANALYZE privacy_policies")
 
+ActiveRecord::Base.connection.execute("TRUNCATE lessons")
+ActiveRecord::Base.connection.reset_pk_sequence!("lessons")
+Lesson.create(name: "日常会話で学ぶ英語の基礎", description: "日常会話で使用されるフレーズを学びながら、発音、文法、単語、熟語などの英語の基礎を習得することができます。
+英語の初心者の方や、英語を基礎から勉強し直したいと考えている方におすすめのレッスンです。", image_file_name: "lesson1.jpg", deleted: false)
+ActiveRecord::Base.connection.execute("VACUUM ANALYZE lessons")
+
 Rails.cache.clear

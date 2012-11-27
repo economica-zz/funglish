@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  http_basic_authenticate_with :name => "aaa", :password => "000" if ENV["IS_HTTP_BASIC_AUTH_NEED"] == "true"
+
   protect_from_forgery
 
   before_filter :authorize

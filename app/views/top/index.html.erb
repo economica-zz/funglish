@@ -88,6 +88,22 @@
   <h2 class="h2-top"><%= t("top_lesson_videos") %></h2>
   <p class="p-lesson-videos-explanation"><%= t("lesson-videos-explanation")%></p>
 </div>
+<div class="top-lessons">
+  <table class="table-top-lessons">
+    <tbody>
+      <tr class="tr-lesson-name">
+        <td colspan="2" class="td-lesson-name">
+          <%= link_to @lesson1.name, "", :class => "lesson-name" %>
+        </td>
+      </tr>
+      <tr>
+        <td class="td-lesson-image">
+        </td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <div class="top-login-signup">
   <%= link_to t("login_signup"), "/auth", :class => "btn btn-primary btn-large" %>
 </div>
