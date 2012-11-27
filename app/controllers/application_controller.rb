@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with :name => "aaa", :password => "000" if ENV["IS_HTTP_BASIC_AUTH_NEED"] == "true"
+  http_basic_authenticate_with :name => ENV["HTTP_BASIC_AUTH_NAME"], :password => ENV["HTTP_BASIC_AUTH_PASSWORD"] if ENV["HTTP_BASIC_AUTH_NAME"].present?
 
   protect_from_forgery
 
