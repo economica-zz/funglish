@@ -86,24 +86,30 @@
 </div>
 <div class="top-lesson-videos">
   <h2 class="h2-top"><%= t("top_lesson_videos") %></h2>
-  <p class="p-lesson-videos-explanation"><%= t("lesson-videos-explanation")%></p>
+  <p class="p-lesson-videos-explanation"><%= t("lesson_videos_explanation")%></p>
 </div>
 <div class="top-lessons">
   <table class="table-top-lessons">
     <tbody>
       <tr class="tr-lesson-name">
         <td colspan="2" class="td-lesson-name">
-          <%= link_to @lesson1.name, "", :class => "lesson-name" %>
+          <%= link_to @lesson1.name, "/lessons/" + @lesson1.id.to_s, :class => "lesson-name" %>
         </td>
       </tr>
       <tr>
-        <td class="td-lesson-image">
+        <td class="td-lesson-youtube">
+          <iframe width="400" height="225" src="<%= @lesson1.youtube_src %>" frameborder="0" allowfullscreen></iframe>
         </td>
-        <td></td>
+        <td class="td-lesson-description">
+          <p><%= @lesson1.description.gsub("\n", "<br>").html_safe %></p>
+          <%= link_to t("detail"), "/lessons/" + @lesson1.id.to_s, :class => "btn btn-primary btn-lesson-detail" %>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
 <div class="top-login-signup">
   <%= link_to t("login_signup"), "/auth", :class => "btn btn-primary btn-large" %>
+</div>
+<div class="fb-like-box" data-href="http://www.facebook.com/pages/Funglish/178962315576676" data-width="916" data-height="350" data-show-faces="true" data-border-color="#8c1615" data-stream="false" data-header="false">
 </div>

@@ -10,6 +10,7 @@ Funglish::Application.routes.draw do
   match "logout" => "logout#index"
 
   resources :users
+  resources :lessons
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

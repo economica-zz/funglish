@@ -1,0 +1,8 @@
+development:
+  access_key: AKIAIOE7DLTPXODHJTKA
+  secret_key: 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
+  cloud_id: 549352bfe3c56eb2ec806fe6452690ce
+production:
+  access_key: AKIAIOE7DLTPXODHJTKA
+  secret_key: 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
+  cloud_id: 549352bfe3c56eb2ec806fe6452690ce

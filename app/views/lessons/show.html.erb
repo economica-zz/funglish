@@ -1,0 +1,39 @@
+<div class="lesson-header" style="background-image: url(<%= ENV['CLOUDINARY_BASE_URL'] %>/image/upload/<%= @lesson.cloudinary_public_id %>.jpg)">
+  <h1 class="lesson-header"><span class="lesson-header">&nbsp;<%= @lesson.name %>&nbsp;</span></h1>
+</div>
+<div class="lesson-description">
+  <table class="table-lesson-description">
+    <tbody>
+      <tr>
+        <td class="td-lesson-youtube">
+          <iframe width="400" height="225" src="<%= @lesson.youtube_src %>" frameborder="0" allowfullscreen></iframe>
+        </td>
+        <td class="td-lesson-description">
+          <p><%= @lesson.description.gsub("\n", "<br>").html_safe %></p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="videos-teachers">
+  <table class="videos-teachers">
+    <tbody>
+      <tr>
+        <td class="videos">
+          <div class="videos">
+            <div class="videos-inner">
+              <span class="videos"><%= t("list_of_videos") %></span>
+              <table>
+                
+              </table>
+            </div>
+          </div>
+        </td>
+        <td class="videos-teachers-space">
+        </td>
+        <td class="teachers">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

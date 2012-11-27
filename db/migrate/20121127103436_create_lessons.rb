@@ -3,7 +3,8 @@ class CreateLessons < ActiveRecord::Migration
     create_table :lessons do |t|
       t.string :name
       t.text :description
-      t.string :image_file_name
+      t.string :youtube_src
+      t.string :cloudinary_public_id
       t.boolean :deleted, null: false, default: false
       t.timestamps
     end

@@ -93,7 +93,9 @@ ja:
   how_it_works_2_header: "２．英会話を行いたい空き時間を登録します。または、他の学習者が登録している空き時間に、英会話の予定を申し込みます。"
   how_it_works_3_header: "３．他の学習者とカフェなどで会い、動画で学んだフレーズを使いながら、お互いに英会話を練習します。また、SkypeやGoogle＋ハングアウトを利用して、遠方の学習者と英会話を練習することもできます。"
   top_lesson_videos: "英語レッスン動画"
-  lesson-videos-explanation: "各レッスン動画を105円（税込）でご視聴頂けます。（無料でご視聴頂けるレッスン動画も一部ご用意しております。）"
+  lesson_videos_explanation: "各レッスン動画を105円（税込）でご視聴頂けます。（無料でご視聴頂けるレッスン動画も一部ご用意しております。）"
+  detail: "詳細"
+  list_of_videos: "動画一覧"
   activerecord:
     attributes:
       user:

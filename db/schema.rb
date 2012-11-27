@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121127103436) do
+ActiveRecord::Schema.define(:version => 20121127171730) do
+
+  create_table "chapters", :force => true do |t|
+    t.integer  "lesson_id"
+    t.integer  "number"
+    t.string   "name"
+    t.integer  "price"
+    t.string   "cloudinary_public_id"
+    t.string   "description"
+    t.boolean  "is_released"
+    t.date     "scheduled_release_date"
+    t.string   "panda_video_id"
+    t.boolean  "deleted",                :default => false, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  add_index "chapters", ["lesson_id", "deleted"], :name => "idx_chapters_01"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -23,10 +40,11 @@ ActiveRecord::Schema.define(:version => 20121127103436) do
   create_table "lessons", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "image_file_name"
-    t.boolean  "deleted",         :default => false, :null => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.string   "youtube_src"
+    t.string   "cloudinary_public_id"
+    t.boolean  "deleted",              :default => false, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
   create_table "occupations", :force => true do |t|

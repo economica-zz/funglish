@@ -43,5 +43,7 @@ Funglish::Application.configure do
   ENV['MEMCACHE_PASSWORD'] = "nN3acLyO2SwJqcz0"
   ENV['MEMCACHE_SERVERS'] = "mc7.ec2.northscale.net"
   ENV['MEMCACHE_USERNAME'] = "app9444032%40heroku.com"
+  ENV['CLOUDINARY_BASE_URL'] = "http://res.cloudinary.com/htnuxuh4u"
   ENV['CLOUDINARY_URL'] = "cloudinary://194668585679986:y7pkf-TNPN1HbVBuYODUYG05i7w@htnuxuh4u"
+  ENV['PANDASTREAM_URL'] = "https://2d06316e0e28aa11fb30:3156eb1604d5bdaacba2@api.pandastream.com/549352bfe3c56eb2ec806fe6452690ce"
 end

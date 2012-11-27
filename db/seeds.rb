@@ -303,7 +303,13 @@ ActiveRecord::Base.connection.execute("VACUUM ANALYZE privacy_policies")
 ActiveRecord::Base.connection.execute("TRUNCATE lessons")
 ActiveRecord::Base.connection.reset_pk_sequence!("lessons")
 Lesson.create(name: "日常会話で学ぶ英語の基礎", description: "日常会話で使用されるフレーズを学びながら、発音、文法、単語、熟語などの英語の基礎を習得することができます。
-英語の初心者の方や、英語を基礎から勉強し直したいと考えている方におすすめのレッスンです。", image_file_name: "lesson1.jpg", deleted: false)
+
+英語の初心者の方や、英語を基礎から勉強し直したいと考えている方におすすめのレッスンです。", youtube_src: "http://www.youtube.com/embed/yPnCT8_8jOw?rel=0", cloudinary_public_id: "lesson1_001", deleted: false)
 ActiveRecord::Base.connection.execute("VACUUM ANALYZE lessons")
+
+ActiveRecord::Base.connection.execute("TRUNCATE chapters")
+ActiveRecord::Base.connection.reset_pk_sequence!("chapters")
+Chapter.create(lesson_id: 1, number: 1, name: "チャプターのタイトル", price: 0, cloudinary_public_id: "lesson1_chapter1_001", description: "チャプターの説明", is_released: true, scheduled_release_date: nil, panda_video_id: "ff1bf67e6900fd14954a66bd9c8c1120", deleted: false)
+ActiveRecord::Base.connection.execute("VACUUM ANALYZE chapters")
 
 Rails.cache.clear
