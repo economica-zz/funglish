@@ -50,21 +50,11 @@ class UsersController < ApplicationController
       redirect_to :root
       return
     else
-      last_name = client.me.info["last_name"]
-      first_name = client.me.info["first_name"]
       gender = client.me.info["gender"]
       facebook_link = client.me.info["link"]
 
       @user = User.new
       @user.facebook_id = facebook_id
-
-      if last_name.present?
-        @user.last_name = last_name
-      end
-
-      if first_name.present?
-        @user.first_name = first_name
-      end
 
       if gender.present?
         if "male" == gender
