@@ -43,5 +43,5 @@ Funglish::Application.configure do
   ENV['MEMCACHE_PASSWORD'] = "nN3acLyO2SwJqcz0"
   ENV['MEMCACHE_SERVERS'] = "mc7.ec2.northscale.net"
   ENV['MEMCACHE_USERNAME'] = "app9444032%40heroku.com"
-  ENV['CLOUDINARY_URL'] = "cloudinary://465747456237747:hpdr55olQH_UVJtcHzsR9EarYOE@hmb84ofqb"
+  ENV['CLOUDINARY_URL'] = "cloudinary://194668585679986:y7pkf-TNPN1HbVBuYODUYG05i7w@htnuxuh4u"
 end

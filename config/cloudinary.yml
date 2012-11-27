@@ -1,19 +1,19 @@
 ---
 development:
-  cloud_name: hmb84ofqb
-  api_key: '465747456237747'
-  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  cloud_name: htnuxuh4u
+  api_key: '194668585679986'
+  api_secret: y7pkf-TNPN1HbVBuYODUYG05i7w
   enhance_image_tag: true
-  static_image_support: true
+  static_image_support: false
 production:
-  cloud_name: hmb84ofqb
-  api_key: '465747456237747'
-  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  cloud_name: htnuxuh4u
+  api_key: '194668585679986'
+  api_secret: y7pkf-TNPN1HbVBuYODUYG05i7w
   enhance_image_tag: true
   static_image_support: true
 test:
-  cloud_name: hmb84ofqb
-  api_key: '465747456237747'
-  api_secret: hpdr55olQH_UVJtcHzsR9EarYOE
+  cloud_name: htnuxuh4u
+  api_key: '194668585679986'
+  api_secret: y7pkf-TNPN1HbVBuYODUYG05i7w
   enhance_image_tag: true
-  static_image_support: true
+  static_image_support: false
