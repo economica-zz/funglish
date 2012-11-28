@@ -1,7 +1,7 @@
-class CreateChapters < ActiveRecord::Migration
+class CreateLessons < ActiveRecord::Migration
   def change
-    create_table :chapters do |t|
-      t.references :lesson
+    create_table :lessons do |t|
+      t.references :course
       t.integer :number
       t.string :name
       t.integer :price
@@ -9,11 +9,14 @@ class CreateChapters < ActiveRecord::Migration
       t.string :description
       t.boolean :is_released
       t.date :scheduled_release_date
+      t.date :release_date
       t.string :panda_video_id
+      t.boolean :is_main_lesson, null: false, default: false
+      t.references :main_lesson
       t.boolean :deleted, null: false, default: false
       t.timestamps
     end
 
-    add_index :chapters, [:lesson_id, :deleted], name: "idx_chapters_01"
+    add_index :lessons, [:course_id, :is_main_lesson, :deleted], name: "idx_lessons_01"
   end
 end

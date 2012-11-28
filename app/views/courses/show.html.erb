@@ -1,15 +1,15 @@
-<div class="lesson-header" style="background-image: url(<%= ENV['CLOUDINARY_BASE_URL'] %>/image/upload/<%= @lesson.cloudinary_public_id %>.jpg)">
-  <h1 class="lesson-header"><span class="lesson-header">&nbsp;<%= @lesson.name %>&nbsp;</span></h1>
+<div class="course-header" style="background-image: url(<%= ENV['CLOUDINARY_BASE_URL'] %>/image/upload/<%= @course.cloudinary_public_id %>.jpg)">
+  <h1 class="course-header"><span class="course-header">&nbsp;<%= @course.name %>&nbsp;</span></h1>
 </div>
-<div class="lesson-description">
-  <table class="table-lesson-description">
+<div class="course-description">
+  <table class="table-course-description">
     <tbody>
       <tr>
-        <td class="td-lesson-youtube">
-          <iframe width="400" height="225" src="<%= @lesson.youtube_src %>" frameborder="0" allowfullscreen></iframe>
+        <td class="td-course-youtube">
+          <iframe width="400" height="225" src="<%= @course.youtube_src %>" frameborder="0" allowfullscreen></iframe>
         </td>
-        <td class="td-lesson-description">
-          <p><%= @lesson.description.gsub("\n", "<br>").html_safe %></p>
+        <td class="td-course-description">
+          <p><%= @course.description.gsub("\n", "<br>").html_safe %></p>
         </td>
       </tr>
     </tbody>
