@@ -16,11 +16,6 @@ class CoursesController < ApplicationController
 
     @lessons = Lesson.where(course_id: id, is_main_lesson: true, deleted: false).order("number, id")
 
-    if @lessons.blank?
-      redirect_to :root
-      return
-    end
-
     @teachers = Teacher.where(course_id: id, deleted: false).order("id")
 
     if @teachers.blank?

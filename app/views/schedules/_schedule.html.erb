@@ -52,7 +52,7 @@
             <%= link_to t("delete_schedule"), "", :class => "btn btn-inverse btn-delete-schedule", :onclick => "delete_schedule_top('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_schedule") +"'); return false;" if is_top %>
             <%= link_to t("delete_schedule"), "", :class => "btn btn-inverse btn-delete-schedule", :onclick => "delete_schedule_top_history('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_schedule") +"'); return false;" if is_top_history %>
             <% if is_detail %>
-              <%= form_tag("/schedules/delete_schedule_detail") do %>
+              <%= form_tag("/schedules/delete_schedule_detail", :class => "delete-schedule-detail") do %>
                 <%= hidden_field_tag "id", schedule.id %>
                 <%= submit_tag t("delete_schedule"), :class => "btn btn-inverse btn-delete-schedule", :confirm => t("confirm_message_delete_schedule") %>
               <% end %>
@@ -98,7 +98,7 @@
             <%= link_to t("apply_for_schedule"), "", :class => "btn btn-primary btn-apply-for-schedule", :onclick => "create_guest('#{schedule.id}', '" + t("error_message_ajax") + "', '#{is_top}', '#{is_top_history}', '#{is_detail}'); return false;" if @login_user.present? && schedule.user_id != @login_user.id &&schedule.guests.where(user_id: @login_user.id).count == 0 && schedule.guests.where(guest_status_id: GuestStatus::APPROVED).count < schedule.maximum_number_of_guests && !is_top_history %>
             <%= link_to t("cancel_application"), "", :class => "btn btn-inverse btn-cancel-application", :onclick => "cancel_guest_request('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_cancel_application") + "', '#{is_top}', '#{is_top_history}'); return false;" if @login_user.present? && schedule.guests.where(user_id: @login_user.id).count > 0 && !is_top_history && !is_detail %>
             <% if @login_user.present? && schedule.guests.where(user_id: @login_user.id).count > 0 && !is_top_history && is_detail %>
-              <%= form_tag("/guests/cancel_request_detail") do %>
+              <%= form_tag("/guests/cancel_request_detail", :class => "cancel-request-detail" ) do %>
                 <%= hidden_field_tag "id", schedule.id, :id => "schedule_detail_id" %>
                 <%= submit_tag t("cancel_application"), :class => "btn btn-inverse btn-delete-schedule", :confirm => t("confirm_message_cancel_application") %>
               <% end %>
