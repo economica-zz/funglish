@@ -15,6 +15,10 @@ gem 'certified'
 gem 'dalli'
 gem 'cloudinary'
 gem 'panda', '~> 1.5.0'
+gem 'aws-sdk'
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
+gem 'activemerchant', :require => 'active_merchant'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,0 +1,146 @@
+<div class="video-header">
+  <div class="video-header-left">
+    <div class="lesson-header">
+      <%= link_to @lesson.course.name, "/courses/" + @lesson.course.id.to_s %>
+      &nbsp;>&nbsp;
+      <span>
+        <% if @lesson.is_main_lesson %>
+          <%= @lesson.lesson_label %>
+        <% else %>
+          <%= link_to @lesson.main_lesson.lesson_label, "/lessons/" + @lesson.main_lesson_id.to_s %>
+        <% end %>
+      </span>
+      <% if !@lesson.is_main_lesson %>
+        &nbsp;>&nbsp;
+        <%= t("complementary_lesson") %>
+      <% end %>
+    </div>
+    <div>
+      <table class="lesson-header">
+        <tbody>
+          <tr>
+            <td>
+              <h1 class="video-name"><%= @lesson.name %></h1>
+            </td>
+            <td class="video-price">
+              <span class="label <%= @lesson.get_price_class %>"><%= @lesson.get_price %></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="lesson-description">
+      <%= @lesson.description.gsub("\n", "<br>").html_safe %>
+    </div>
+  </div>
+  <div class="video-header-right">
+    <% if @payment.present? %>
+      <table class="table table-bordered table-condensed table-middle">
+        <tbody>
+          <tr>
+            <td class="td-label payment-info"><%= t("pay_timestamp") %></td>
+            <td>
+              <%= l(TimeZone.convert_time_zone(@payment.pay_timestamp, @login_user, false), :format => :ymdahms) %>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label"><%= t("expiration_timestamp") %></td>
+            <td class="<%= "text-red" if @payment.expiration_timestamp < Time.current.in_time_zone("UTC") %>">
+              <%= l(TimeZone.convert_time_zone(@payment.expiration_timestamp, @login_user, false), :format => :ymdahms) %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
+<div class="video-materials">
+  <div class="video">
+    <% if @auth_status_id == AuthStatus::OK %>
+      <video id="video" width="640" height="360" controls autoplay>
+        <source src="<%= @panda_video_webm_url %>" type="video/webm">
+        <source src="<%= @panda_video_ogg_url %>" type="video/ogg">
+        <source src="<%= @panda_video_h264_url %>" type="video/mp4">
+      </video>
+    <% elsif @auth_status_id == AuthStatus::NOT_LOGIN %>
+      <div class="payment">
+        <div class="payment-inner">
+            <span class="payment"><%= t("payment_login_explanation").gsub("\n", "<br>").html_safe %></span>
+            <div class="payment-login">
+              <%= render "/layouts/login_signup" %>
+            </div>
+        </div>
+      </div> 
+    <% elsif @auth_status_id == AuthStatus::NOT_PAID %>
+      <div class="payment">
+        <div class="payment-inner">
+          <div>
+            <span class="payment"><%= t("payment_explanation", :price => @lesson.price).gsub("\n", "<br>").html_safe %></span>
+          </div>
+          <div class="pay-with-paypal">
+            <%= link_to t("pay_with_paypal"), "/paypal/checkout/" + @lesson.id.to_s, :class => "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="materials">
+    <div class="materials-inner">
+      <div>
+        <table class="download-materials">
+          <tbody>
+            <tr>
+              <td>
+                <span class="download-materials"><%= t("download_materials") %></span>
+              </td>
+              <td class="download-materials-price">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <% @lesson_materials.each do |lesson_material| %>
+          <div class="lesson-material">
+            <div>
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="material-icon">
+                      <a href="/lesson_materials/download_file/<%= lesson_material.id.to_s %>" class="material-icon" target="_blank">
+                        <%= image_tag(lesson_material.material.icon_file_name, size: "20x20", alt: "Material Icon") %>
+                      </a>
+                    </td>
+                    <td>
+                      <%= link_to lesson_material.material.name, "/lesson_materials/download_file/" + lesson_material.id.to_s, :class => "material-name", :target => "_blank" %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="material-description">
+              <%= lesson_material.material.description.gsub("\n", "<br>").html_safe %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+<%= render "lessons/lessons", title: t("list_of_complementary_videos") %>
+<% if @lesson.is_main_lesson %>
+  <div class="practice-english-conversation">
+    <div class="practice-english-conversation-inner" id="practice-english-conversation-inner">
+      <%= render "lessons/practice_english_conversation" %>
+    </div>
+  </div>
+<% end %>
+<div class="register-comment-header">
+  <div class="register-comment-header-inner">
+    <div><a name="comment-top" class="comment-top"><%= t("comment") %></a></div>
+    <div><span><%= t("comment_explanation").gsub("\n", "<br>").html_safe %></span></div>
+  </div>
+</div>
+<div id="comments-top">
+  <%= render "comments/comments_top" %>
+</div>
+<div>&nbsp;</div>

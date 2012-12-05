@@ -1,0 +1,27 @@
+<% @comment_child.parent_comment_id = comment.id %>
+<%= form_for @comment_child, :html => {:onsubmit => "register_comment_child(this, '" + comment.id.to_s + "', '" + t("error_message_ajax") + "', " + StatusCodes::INVALID_PARAMETERS.to_s + "); return false;"} do |form| %>
+  <% unless @comment_child.errors.empty? %>
+    <ul class="error">
+      <% @comment_child.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <table>
+      <tr>
+        <td class="register-comment-child-img">
+          <a href="/users/<%= @login_user.facebook_id %>" class="img">
+            <%= facebook_profile_image_tag(@login_user.facebook_id + ".jpg", :width => 38, :height => 38, :crop => :fill, :gravity => :north_west) %>
+          </a>
+        </td>
+        <td>
+          <%= form.text_area :content, rows: 2, :id => "comment_child" + comment.id.to_s  + "_content", :class => "comment_child_content" %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%= form.hidden_field :lesson_id, :id => "comment_child" + comment.id.to_s + "lesson_id" %>
+  <%= form.hidden_field :parent_comment_id, :id => "comment_child" + comment.id.to_s + "parent_comment_id" %>
+  <%= form.submit t("register"), :class => "btn btn-primary btn-register-comment" %>
+<% end %>

@@ -26,3 +26,14 @@
     </span>
   </div>
 </div>
+<% if @login_user.present? %>
+  <div class="header-sub-wrapper">
+    <div class="header-sub-content">
+      <%= link_to t("english_conversation_schedules"), root_path, :class => "header-sub-links #{"active" if @active_tab == "schedule"}" %>
+      <%= link_to t("apply_for_others_schedule"), "/apply", :class => "header-sub-links #{"active" if @active_tab == "apply"}" %>
+      <%= link_to t("register_schedule_of_english_conversation"), "/register", :class => "header-sub-links #{"active" if @active_tab == "register"}" %>
+      <%= link_to t("watch_lesson_video"), "/lesson", :class => "header-sub-links #{"active" if @active_tab == "lesson"}" %>
+      <%= link_to t("conversation_history"), "/history", :class => "#{"active" if @active_tab == "history"}" %>
+    </div>
+  </div>
+<% end%>

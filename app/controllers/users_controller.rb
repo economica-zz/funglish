@@ -70,6 +70,7 @@ class UsersController < ApplicationController
 
       @user.nationality_country_id = Country::JAPAN
       @user.location_country_id = Country::JAPAN
+      @user.time_zone_id = TimeZone::JAPAN
 
       get_terms_privacy
     end
@@ -149,6 +150,7 @@ class UsersController < ApplicationController
     @user.location_country_id = p[:location_country_id]
     @user.location_prefecture_id = p[:location_prefecture_id]
     @user.location_city = p[:location_city]
+    @user.time_zone_id = p[:time_zone_id]
     @user.email_address = p[:email_address]
     @user.telephone_number = p[:telephone_number]
     @user.skype_name = p[:skype_name]
@@ -157,5 +159,10 @@ class UsersController < ApplicationController
     @user.birthday_1i = p["birthday(1i)"]
     @user.birthday_2i = p["birthday(2i)"]
     @user.birthday_3i = p["birthday(3i)"]
+
+    if !is_create && @user.email_address != User.where(facebook_id: p[:facebook_id], deleted: false).first.email_address
+      @user.is_email_address_confirmed = false
+      @user.email_address_confirmation_code = nil
+    end
   end
 end

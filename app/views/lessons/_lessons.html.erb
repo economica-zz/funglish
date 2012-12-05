@@ -1,0 +1,50 @@
+<% if @lessons.count > 0 %>
+  <div class="lessons">
+    <div class="lessons-inner">
+      <div><span class="lessons"><%= title %></span></div>
+      <% j = 0 %>
+      <% @lessons.each do |lesson| %>
+        <% j = j + 1 %>
+        <% if j % 2 == 1 %>
+          <div class="lessons-row">
+        <% end %>
+        <div class="lesson <%= "lesson-right" if j % 2 == 0 %>">
+          <table class="lesson">
+            <tbody>
+              <tr>
+                <td colspan="2"><span class="lesson-number"><%= lesson.lesson_label %></span></td>
+                <td class="lesson-price"><span class="label <%= lesson.get_price_class %>"><%= lesson.get_price %></span></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <div class="lesson-name">
+                    <%= link_to lesson.name, "/lessons/" + lesson.id.to_s, :class => "lesson-name" %>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="lesson-image">
+                  <a href="/lessons/<%= lesson.id.to_s %>">
+                    <%= cl_image_tag(lesson.cloudinary_public_id + ".jpg", :width => 140, :height => 140, :crop => :fill) %>
+                  </a>
+                </td>
+                <td colspan="2" class="lesson-description">
+                  <div class="lesson-description-inner">
+                    <p><%= lesson.description.gsub("\n", "<br>").html_safe %></p>
+                    <%= link_to t("detail"), "/lessons/" + lesson.id.to_s, :class => "btn btn-primary btn-watch" %>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <% if j % 2 == 0 %>
+          </div>
+        <% end %>
+      <% end %>
+      <% if j % 2 == 1 %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

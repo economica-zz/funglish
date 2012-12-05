@@ -1,0 +1,2 @@
+module EmailAddressConfirmationHelper
+end

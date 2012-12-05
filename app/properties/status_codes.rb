@@ -1,0 +1,4 @@
+class StatusCodes
+  INVALID_PARAMETERS = 270
+  BAD_REQUEST = 400
+end

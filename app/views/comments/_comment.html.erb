@@ -1,0 +1,71 @@
+<table class="comment">
+  <tr>
+    <td class="register-comment-img">
+      <a href="/users/<%= comment.user.facebook_id %>" class="img">
+        <%= facebook_profile_image_tag(comment.user.facebook_id + ".jpg", :width => 70, :height => 70, :crop => :fill, :gravity => :north_west) %>
+      </a>
+    </td>
+    <td class="comment-content">
+      <div>
+        <%= link_to comment.user.user_name, "/users/" + comment.user.facebook_id %>
+      </div>
+      <div class="comment-content-inner">
+        <%= h(comment.content).gsub("\n", "<br>").html_safe %>
+      </div>
+      <div class="comment-created-at">
+        <span class="comment-created-at">
+          <%= l(TimeZone.convert_time_zone(comment.created_at, @login_user, false), :format => :ymdahms) %>
+        </span>
+        <%= link_to t("delete_comment"), "", :class => "delete-comment", :onclick => "delete_comment('#{comment.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_comment") +"'); return false;" if @login_user.present? && comment.user_id == @login_user.id %>
+      </div>
+      <% if @login_user.present? || comment.child_comments.count > 0 %>
+      <div class="comment-child">
+        <div class="comment-child-inner">
+          <div class="comment-children">
+            <% child_index = 0 %>
+            <% comment.child_comments.each do |child_comment| %>
+              <% child_index = child_index + 1 %>
+              <% if child_index > 1 %>
+                <div class="comment-child-bar">
+                </div>
+              <% end %>
+              <div class="comment-child-row">
+                <table class="comment-child-row">
+                  <tr>
+                    <td class="comment-child-img">
+                      <a href="/users/<%= child_comment.user.facebook_id %>" class="img">
+                        <%= facebook_profile_image_tag(child_comment.user.facebook_id + ".jpg", :width => 38, :height => 38, :crop => :fill, :gravity => :north_west) %>
+                      </a>
+                    </td>
+                    <td class="comment-child-content">
+                      <div>
+                        <%= link_to child_comment.user.user_name, "/users/" + child_comment.user.facebook_id %>
+                      </div>
+                      <div class="comment-content-inner">
+                        <%= h(child_comment.content).gsub("\n", "<br>").html_safe %>
+                      </div>
+                      <div class="comment-created-at">
+                        <span class="comment-created-at">
+                          <%= l(TimeZone.convert_time_zone(child_comment.created_at, @login_user, false), :format => :ymdahms) %>
+                        </span>
+                        <%= link_to t("delete_comment"), "", :class => "delete-comment", :onclick => "delete_comment_child('#{child_comment.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_comment") +"', '" + child_comment.parent_comment_id.to_s + "'); return false;" if @login_user.present? && child_comment.user_id == @login_user.id %>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            <% end %>
+          </div>
+          <% if child_index > 0 && @login_user.present? %>
+            <div class="comment-child-bar">
+            </div>
+          <% end %>
+          <div class="register-comment-child" id="register-comment-child">
+            <%= render "comments/register_comment_child", :comment => comment if @login_user.present? %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </td>
+  </tr>
+</table>

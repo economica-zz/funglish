@@ -8,9 +8,46 @@ Funglish::Application.routes.draw do
   match "inquiry" => "inquiry#index"
   match "auth" => "auth#login_signup"
   match "logout" => "logout#index"
+  match "lesson_materials/download_file/:id" => "lesson_materials#download_file"
+  match "lessons/get_schedule_list/:id" => "lessons#get_schedule_list"
+  match "comments/get_comment_list/:id" => "comments#get_comment_list"
+  match "schedule_comments/get_schedule_comment_list/:id" => "schedule_comments#get_schedule_comment_list"
+  match "paypal/checkout/:id" => "paypal#checkout"
+  match "paypal/confirm/:id" => "paypal#confirm"
+  match "paypal/cancel/:id" => "paypal#cancel"
+  match "apply" => "top#apply"
+  match "register" => "top#register"
+  match "lesson" => "top#lesson"
+  match "history" => "top#history"
+  match "email_address_confirmation" => "email_address_confirmation#index"
+  match "email_address_confirmation/complete/:facebook_id/:email_address_confirmation_code" => "email_address_confirmation#complete"
+
+  post "schedules/create_from_lesson"
+  post "schedules/delete_schedule"
+  post "schedules/delete_schedule_top"
+  post "schedules/delete_schedule_top_history"
+  post "schedules/delete_schedule_detail"
+  post "guests/approve_request"
+  post "guests/decline_request"
+  post "guests/cancel_request"
+  post "guests/cancel_request_detail"
+  post "comments/delete_comment"
+  post "comments/register_comment_child"
+  post "comments/delete_comment_child"
+  post "paypal/complete"
+  post "schedule_comments/delete_schedule_comment"
+
+  get "top/get_schedule_list"
+  get "top/get_schedule_apply_list"
+  get "top/get_schedule_history_list"
 
   resources :users
   resources :courses
+  resources :lessons
+  resources :schedules
+  resources :guests
+  resources :comments
+  resources :schedule_comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

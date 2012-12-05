@@ -1,0 +1,9 @@
+<% if @login_user.present? && (@schedule.user_id == @login_user.id || @schedule.guests.where(user_id: @login_user.id, guest_status_id: GuestStatus::APPROVED, deleted: false).count > 0) %>
+  <div class="register-schedule-comment-body" id="register-schedule-comment-body">
+    <%= render "/schedule_comments/register" %>
+  </div>
+<% end %>
+<div class="schedule-comments" id="schedule-comments">
+  <%= render "/schedule_comments/schedule_comments", schedule_id: @schedule.id.to_s %>
+</div>
+<div>&nbsp;</div>

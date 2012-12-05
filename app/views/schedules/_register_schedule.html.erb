@@ -1,0 +1,93 @@
+<%
+  conversation_form_choices = Utils.get_choices("ConversationForm", "id")
+  prefecture_choices = Utils.get_choices("Prefecture", "id")
+  number_of_guests_choices = Array.new
+  1.upto 9 do |i|
+    number_of_guests_choices << [i.to_s, i.to_s]
+  end
+  if is_top
+    lesson_choices = Lesson.get_choices
+  end
+%>
+<%= form_for @schedule, :url => "#{"/schedules" if is_top}#{"/schedules/create_from_lesson" if !is_top}", :html => {:onsubmit => "#{"register_schedule(this, '" + t("error_message_ajax") + "', " + StatusCodes::INVALID_PARAMETERS.to_s + "); return false;" if !is_top}"} do |form| %>
+ <% unless @schedule.errors.empty? %>
+    <ul class="error error-schdule-register">
+      <% @schedule.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="register-schedule-label">
+    <%= t("activerecord.attributes.schedule.start_timestamp") %><span class="required"><%= t("required") %></span>
+  </div>
+  <div class="register-schedule-item">
+    <%= form.datetime_select :start_timestamp, {start_year: TimeZone.current_time(@login_user).year , end_year: TimeZone.current_time(@login_user).year + 1, :order => [:year, :month, :day], :default => TimeZone.current_time(@login_user).to_date, :date_separator => "", use_month_numbers: true, :minute_step => 15}, :style => "padding: 0px; margin: 0px;" %>
+  </div>
+  <div class="register-schedule-label">
+    <%= t("activerecord.attributes.schedule.time") %><span class="required"><%= t("required") %></span>
+  </div>
+  <div class="register-schedule-item">
+    <%= form.select :time, [["30", "30"], ["60","60"]] %><%= t("minutes") %>
+  </div>
+  <% if is_top %>
+    <div class="register-schedule-label">
+      <%= t("activerecord.attributes.schedule.lesson_id") %><span class="required"><%= t("required") %></span>
+    </div>
+    <div class="register-schedule-item">
+      <%= form.select :lesson_id, lesson_choices, {} %>
+    </div>
+  <% else %>
+    <%= form.hidden_field :lesson_id %>
+  <% end %>
+  <div class="register-schedule-label">
+    <%= t("activerecord.attributes.schedule.conversation_form_id") %><span class="required"><%= t("required") %></span>
+  </div>
+  <div class="register-schedule-item">
+    <%= form.select :conversation_form_id, conversation_form_choices, {}, :onchange => "ctl_location_inputs('" + ConversationForm::FACE_TO_FACE.to_s + "');" %>
+  </div>
+  <div id="schedule_location_inputs" class="<%= "display-none" if @schedule.conversation_form_id != ConversationForm::FACE_TO_FACE %>">
+    <div class="register-schedule-label">
+      <%= t("activerecord.attributes.schedule.location_prefecture_id") %><span class="required"><%= t("required") %></span>
+    </div>
+    <div class="register-schedule-item">
+      <%= form.select :location_prefecture_id, prefecture_choices, {:include_blank => true} %>
+    </div>
+    <div class="register-schedule-label">
+      <%= t("activerecord.attributes.schedule.location_name") %><span class="required"><%= t("required") %></span>
+    </div>
+    <div class="register-schedule-explanation">
+      <%= t("schedule_location_name_explanation") %>
+    </div>
+    <div>
+      <%= form.text_field :location_name %>
+    </div>
+    <div class="register-schedule-label">
+      <%= t("activerecord.attributes.schedule.location_reference_url") %>
+    </div>
+    <div class="register-schedule-explanation">
+      <%= t("schedule_location_reference_url_explanation") %>
+    </div>
+    <div>
+      <%= form.text_field :location_reference_url %>
+    </div>
+  </div>
+  <div class="register-schedule-label">
+    <%= t("activerecord.attributes.schedule.maximum_number_of_guests") %><span class="required"><%= t("required") %></span>
+  </div>
+  <div class="register-schedule-explanation">
+    <%= t("schedule_maximum_number_of_guests_explanation").gsub("\n", "<br>").html_safe %>
+  </div>
+  <div>
+    <%= form.select :maximum_number_of_guests, number_of_guests_choices %><%= t("nin") %>
+  </div>
+  <div class="register-schedule-label">
+    <%= t("activerecord.attributes.schedule.message") %>
+  </div>
+  <div class="register-schedule-explanation">
+    <%= t("schedule_message_explanation") %>
+  </div>
+  <div>
+    <%= form.text_area :message, rows: 4 %>
+  </div>
+  <%= form.submit t("register"), :class => "btn btn-primary btn-schedule-register" %>
+<% end %>

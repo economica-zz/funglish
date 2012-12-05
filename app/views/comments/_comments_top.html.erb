@@ -1,0 +1,8 @@
+<% if @login_user.present? %> 
+  <div class="register-comment" id="register-comment">
+    <%= render "comments/register_comment" %>
+  </div>
+<% end %>
+<div id="comments">
+  <%= render "comments/comments" %>
+</div>

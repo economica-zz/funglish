@@ -1,0 +1,9 @@
+development:
+  access_key_id: AKIAIOE7DLTPXODHJTKA
+  secret_access_key: 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
+test:
+  access_key_id: AKIAIOE7DLTPXODHJTKA
+  secret_access_key: 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
+production:
+  access_key_id: AKIAIOE7DLTPXODHJTKA
+  secret_access_key: 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

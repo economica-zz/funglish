@@ -1,0 +1,28 @@
+<% @schedule_comments.each do |schedule_comment| %>
+  <div class="schedule-comment-row">
+    <table class="comment">
+      <tr>
+        <td class="register-comment-img">
+          <a href="/users/<%= schedule_comment.user.facebook_id %>" class="img">
+            <%= facebook_profile_image_tag(schedule_comment.user.facebook_id + ".jpg", :width => 70, :height => 70, :crop => :fill, :gravity => :north_west) %>
+          </a>
+        </td>
+        <td class="comment-content">
+          <div>
+            <%= link_to schedule_comment.user.user_name, "/users/" + schedule_comment.user.facebook_id %>
+          </div>
+          <div class="comment-content-inner">
+            <%= h(schedule_comment.content).gsub("\n", "<br>").html_safe %>
+          </div>
+          <div class="comment-created-at">
+            <span class="comment-created-at">
+              <%= l(TimeZone.convert_time_zone(schedule_comment.created_at, @login_user, false), :format => :ymdahms) %>
+            </span>
+            <%= link_to t("delete_comment"), "", :class => "delete-comment", :onclick => "delete_schedule_comment('#{schedule_comment.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_comment") +"'); return false;" if @login_user.present? && schedule_comment.user_id == @login_user.id %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>
+<%= will_paginate @schedule_comments, :class => 'pagination pagination-schedule-comments', :param_name => :schedule_comment_page, :params => {:schedule_id => schedule_id}, :renderer => BootstrapPagination::Rails, :previous_label => t("pagination_previous_label"), :next_label => t("pagination_next_label") %>

@@ -1,0 +1,13 @@
+<h1><span class="detail-conversation"><%= t("detail_conversation") %></span></h1>
+<div class="detail-conversation">
+  <div class="detail-conversation-inner" id="schedule-<%= @schedule.id.to_s %>">
+    <%= render "/schedules/schedule", schedule: @schedule, is_top: false, is_top_history: false, is_detail: true %>
+  </div>
+</div>
+<div class="register-schedule-comment">
+  <div><a name="schedule-comment-top-header" class="schedule-comment-top"><span class="register-schedule-comment"><%= t("comment") %></span></a></div>
+  <div><span><%= t("schedule_comment_explanation").gsub("\n", "<br>").html_safe %></span></div>
+</div>
+<div id="schedule-comment-top">
+  <%= render "/schedule_comments/top" %>
+</div>

@@ -1,0 +1,4 @@
+class Paginate
+  PER_PAGE_SCHEDULES = 10
+  PER_PAGE_COMMENTS = 10
+end

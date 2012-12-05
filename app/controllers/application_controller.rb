@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
       @login_user = User.where(facebook_id: facebook_id, deleted: false).first
       session.delete(:facebook_id) if @login_user.blank?
     end
+
+    if @login_user.present? && !@login_user.is_email_address_confirmed
+      flash[:email_address_confirmation] = I18n.t("message_email_address_confirmation")
+    end
   end
 
   def login_required

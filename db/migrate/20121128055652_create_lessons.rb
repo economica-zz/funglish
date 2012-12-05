@@ -6,7 +6,7 @@ class CreateLessons < ActiveRecord::Migration
       t.string :name
       t.integer :price
       t.string :cloudinary_public_id
-      t.string :description
+      t.text :description
       t.boolean :is_released
       t.date :scheduled_release_date
       t.date :release_date
@@ -18,5 +18,6 @@ class CreateLessons < ActiveRecord::Migration
     end
 
     add_index :lessons, [:course_id, :is_main_lesson, :deleted], name: "idx_lessons_01"
-  end
+    add_index :lessons, [:main_lesson_id, :is_main_lesson, :deleted], name: "idx_lessons_02"
+end
 end

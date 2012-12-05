@@ -1,0 +1,12 @@
+<% if @schedules.count > 0 %>
+  <% @schedules.each do |schedule| %>
+    <div class="schedule" id="schedule-<%= schedule.id %>">
+      <%= render "/schedules/schedule", schedule: schedule, is_top: false, is_top_history: false, is_detail: false %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="no-schedules-for-display">
+    <%= t("no_schedules_for_display") %>
+  </div>
+<% end %>
+<%= will_paginate @schedules, :class => 'pagination pagination-schedules-top-apply', :param_name => :schedule_top_apply_page, :renderer => BootstrapPagination::Rails, :previous_label => t("pagination_previous_label"), :next_label => t("pagination_next_label") %>

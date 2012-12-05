@@ -46,4 +46,16 @@ Funglish::Application.configure do
   ENV['CLOUDINARY_BASE_URL'] = "http://res.cloudinary.com/htnuxuh4u"
   ENV['CLOUDINARY_URL'] = "cloudinary://194668585679986:y7pkf-TNPN1HbVBuYODUYG05i7w@htnuxuh4u"
   ENV['PANDASTREAM_URL'] = "https://2d06316e0e28aa11fb30:3156eb1604d5bdaacba2@api.pandastream.com/549352bfe3c56eb2ec806fe6452690ce"
+  ENV['PAYPAL_API_USERNAME'] = "seller_1354597746_biz_api1.gmail.com"
+  ENV['PAYPAL_API_PASSWORD'] = "1354597761"
+  ENV['PAYPAL_SIGNATURE'] = "A7OwH5efxpOw0LHurI9Gry1ESjXZAgRrORcR6ujjAeT.QyQ3oIww-F9s"
+  ENV['PAYPAL_TEST_MODE'] = "true"
+  ENV['SENDGRID_USERNAME'] = "app9444032@heroku.com"
+  ENV['SENDGRID_PASSWORD'] = "yisxqtzt"
+
+  config.after_initialize do
+    if ENV['PAYPAL_TEST_MODE'] == "true"
+      ActiveMerchant::Billing::Base.mode = :test
+    end
+  end
 end

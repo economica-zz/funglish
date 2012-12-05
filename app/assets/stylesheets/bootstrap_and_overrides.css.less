@@ -48,6 +48,11 @@ div.header-wrapper {
   background-color: #8c1615;
 }
 
+div.header-sub-wrapper {
+  width: 100%;
+  background-color: #ede1c4;
+}
+
 div.body-wrapper {
   width: 100%;
 }
@@ -66,6 +71,33 @@ div.header-content, div.footer-content {
   a:hover {
     color: #ede1c4;
     border-bottom: 1px #ede1c4 dotted;
+  }
+}
+
+div.header-sub-content {
+  width: 916px;
+  height: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: auto;
+  color: #000000;
+  a {
+    color: #000000;
+    border-bottom: none;
+  }
+  a.active {
+    color: #767050;
+    border-bottom: none;
+  }
+  a:hover {
+    color: #8c1615;
+    border-bottom: 1px #8c1615 dotted;
+  }
+  a.active:hover {
+    color: #767050;
+    border-bottom: none;
   }
 }
 
@@ -119,6 +151,10 @@ div.footer-links, div.copyright {
 }
 
 div.footer-links a {
+  margin-right: 16px;
+}
+
+a.header-sub-links {
   margin-right: 16px;
 }
 
@@ -206,17 +242,46 @@ select#user_sex_id {
   width: 100px;
 }
 
-select#user_birthday_1i {
+select#user_birthday_1i, select#schedule_start_timestamp_1i {
   width: 100px;
 }
 
-select#user_birthday_2i, select#user_birthday_3i {
+select#user_birthday_2i, select#user_birthday_3i, select#schedule_start_timestamp_2i, select#schedule_start_timestamp_3i, select#schedule_start_timestamp_4i, select#schedule_start_timestamp_5i {
   width: 80px;
   margin-left: 10px;
 }
 
+select#schedule_time, select#schedule_maximum_number_of_guests {
+  width: 80px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+
+select#schedule_lesson_id {
+  margin-bottom: 0px;
+  width: 850px;
+}
+
+select#schedule_conversation_form_id {
+  margin-bottom: 0px;
+}
+
+select#schedule_location_prefecture_id {
+  margin-bottom: 0px;
+}
+
 select#user_nationality_country_id, select#user_location_country_id, select#user_location_prefecture_id, select#user_occupation_id, select#user_time_zone_id {
   width: 400px;
+}
+
+input#schedule_location_name, input#schedule_location_reference_url {
+  width: 850px;
+  margin: 0px;
+}
+
+textarea#schedule_message {
+  width: 850px;
+  margin:0px;
 }
 
 table.table-user {
@@ -264,7 +329,7 @@ a.btn {
 
 div.top-main {
   background-color: #ede1c4;
-  height: 250px;
+  padding-bottom: 12px;
 }
 
 table.table-top-main {
@@ -272,7 +337,6 @@ table.table-top-main {
   top: 12px;
   left: 12px;
   width: 892px;
-  height: 226px;
 }
 
 table.table-top-main tr td.td-left-top-main {
@@ -424,40 +488,930 @@ table.table-course-description {
   left: 8px;
 }
 
-div.videos-teachers {
+div.lessons-teachers {
   margin-top: 40px;
 }
 
-table.videos-teachers {
+table.lessons-teachers {
   width: 100%;
 }
 
-td.videos-teachers-space {
+td.lessons-teachers-space {
   width: 16px;
 }
 
-td.videos {
+td.lessons {
   width: 450px;
+  vertical-align: top;
 }
 
 td.teachers {
   width: 450px;
+  vertical-align: top;
 }
 
-div.videos {
+div.teachers, div.lessons {
+  width: 100%;
+  margin-top: 30px;
   background-color: #ede1c4;
+  float: left;
 }
 
-div.videos-inner {
-  width: 438px;
-  padding-top: 12px;
-  padding-left: 12px;
+div.teachers-inner, div.lessons-inner {
+  width: 892px;
+  padding: 12px;
+  float: left;
 }
 
-span.videos {
+span.teachers, span.lessons, span.download-materials {
   font-size: 16px;
   font-weight: bold;
   border-bottom: 1px #000000 solid;
+}
+
+div.teacher, div.lesson {
+  width: 428px;
+  padding: 6px;
+  background-color: #ffffff;
+  float: left;
+}
+
+div.teacher-right, div.lesson-right {
+  margin-left: 12px;
+}
+
+table.teacher, table.lesson {
+  width: 100%;
+}
+
+table tr td.lesson-price {
+  text-align: right;
+  width: 140px;
+}
+
+table tr td.lesson-image {
+  text-align: center;
+  width: 140px;
+}
+
+div.lesson-name {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+a.lesson-name {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.label {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+table tr td.lesson-description {
+  vertical-align: top;
+}
+
+div.lesson-description-inner {
+  padding-left: 12px;
+}
+
+a.btn-watch {
+  margin-top: 10px;
+}
+
+table tr td.teacher-image {
+  text-align: center;
+  width: 140px;
+}
+
+table tr td.teacher-description {
+  vertical-align: top;
+}
+
+div.teacher-description-inner {
+  padding-left: 12px;
+}
+
+h2.teacher-name {
+  font-size: 16px;
+  padding-bottom: 2px;
+}
+
+div.teachers-row, div.lessons-row {
+  padding-top: 12px;
+  float: left;
+}
+
+div.video-materials {
+  width: 100%;
+  float: left;
+}
+
+div.video {
+  width: 640px;
+  float: left;
+}
+
+div.materials {
+  width: 260px;
+  float: left;
+  background-color: #ede1c4;
+  margin-left: 16px;
+}
+
+div.materials-inner {
+  width: 244px;
+  float: left;
+  padding: 8px;
+}
+
+h1.video-name {
+  font-size: 18px;
+  padding-bottom: 4px;
+}
+
+video {
+  background-color: #000000;
+}
+
+div.lesson-material {
+  margin-top: 12px;
+  background-color: #ffffff;
+  width: 232px;
+  padding: 6px;
+}
+
+div.material-name {
+  vertical-align: middle;
+}
+
+table tr td.material-icon {
+  width: 22px;
+}
+
+a.material-name {
+  margin-left: 6px;
+  font-weight: bold;
+}
+
+a.material-icon {
+  border-bottom: none;
+}
+
+a.material-icon:hover {
+  border-bottom: none;
+}
+
+div.material-description {
+  margin-top: 8px;
+}
+
+table tr td.download-materials-price {
+  width: 50px;
+  text-align: right;
+}
+
+table tr td.video-price {
+  width: 50px;
+  text-align: right;
+}
+
+table.download-materials {
+  width: 100%;
+}
+
+div.lesson-header {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+table.lesson-header {
+  width: 640px;
+}
+
+div.lesson-description {
+  width: 640px;
+  margin-bottom: 12px;
+}
+
+div.practice-english-conversation {
+  width: 916px;
+  float: left;
+  margin-top: 30px;
+  background-color: #ede1c4;
+}
+
+div.practice-english-conversation-inner {
+  width: 892px;
+  padding: 12px;
+  float: left;
+}
+
+span.lesson-number {
+  font-weight: bold;
+}
+
+span.practice-english-conversation {
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px #000000 solid;
+}
+
+div.register-schedule-header, div.apply-schedule-header {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+span.register-schedule-header, span.apply-schedule-header {
+  margin-left: 6px;
+}
+
+div.register-schedule, div.apply-schedule {
+}
+
+div.register-schedule-inner, div.apply-schedule-inner {
+  padding-left: 12px;
+}
+
+div.register-schedule-label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+div.register-schedule-item {
+  margin-top: 4px;
+}
+
+div.register-schedule-explanation {
+  margin-top: 2px;
+}
+
+.btn-schedule-register {
+  margin-top: 16px;
+}
+
+.display-none {
+  display: none;
+}
+
+div.login-signup-link {
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+ul.error-schdule-register {
+  margin-top: 6px;
+}
+
+a.img {
+  border-bottom: none;
+}
+
+a.img:hover {
+  border-bottom: none;
+}
+
+div.schedule {
+  margin-top: 12px;
+  background-color: #ffffff;
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+}
+
+div.no-schedules-for-display {
+  margin-top: 12px;
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+}
+
+table tr td.schedule-image {
+  width: 108px;
+  text-align: center;
+}
+
+table tr td.schedule-content {
+  width: 410px;
+  vertical-align: top;
+}
+
+table tr td.schedule-guests {
+  width: 350px;
+  vertical-align: top;
+  border-left: 1px #808080 dotted;
+}
+
+div.schedule-label {
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+div.delete-schedule {
+  margin-top: 10px;
+}
+
+div.schedule-guests-header {
+  font-weight: bold;
+}
+
+div.schedule-guests {
+  margin-left: 6px;
+}
+
+div.schedule-user {
+  margin-top: 10px;
+}
+
+div.schedule-time {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+div.apply-for-schedule {
+  margin-top: 12px;
+}
+
+a.btn-apply-for-schedule, a.btn-approve, a.btn-decline, a.btn-cancel-application, a.btn-delete-schedule, a.btn-detail-schedule {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+input.btn-delete-schedule {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
+div.guest {
+  margin-top: 12px;
+}
+
+table tr td.guest-image {
+  width: 50px;
+}
+
+table tr td.guest-content {
+  vertical-align: top;
+}
+
+div.guest-content {
+  margin-left: 6px;
+}
+
+div.guest-btns {
+  margin-top: 12px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+div.fb-like {
+  margin-top: 8px;
+}
+
+div.pagination-schedules ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-schedules ul li a {
+  background-color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules ul li a:hover {
+  background-color: #d3d3d3;
+  color: #767050;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules ul li.active a {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules ul li.active a:hover {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-schedules-top ul li a {
+  background-color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top ul li a:hover {
+  background-color: #d3d3d3;
+  color: #767050;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top ul li.active a {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top ul li.active a:hover {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-apply ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-schedules-top-apply ul li a {
+  background-color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-apply ul li a:hover {
+  background-color: #d3d3d3;
+  color: #767050;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-apply ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top-apply ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top-apply ul li.active a {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-apply ul li.active a:hover {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-history ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-schedules-top-history ul li a {
+  background-color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-history ul li a:hover {
+  background-color: #d3d3d3;
+  color: #767050;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-history ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top-history ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedules-top-history ul li.active a {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.pagination-schedules-top-history ul li.active a:hover {
+  background-color: #767050;
+  color: #ffffff;
+  border: 1px #767050 solid;
+}
+
+div.bottom-space {
+  margin-bottom: 12px;
+}
+
+div.pagination-comments {
+  float: left;
+  margin-top: 12px;
+}
+
+div.pagination-comments ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-comments ul li a {
+  background-color: #ffffff;
+  color: #808080;
+  border: 1px #808080 solid;
+}
+
+div.pagination-comments ul li a:hover {
+  background-color: #d3d3d3;
+  color: #808080;
+  border: 1px #808080 solid;
+}
+
+div.pagination-comments ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-comments ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-comments ul li.active a {
+  background-color: #808080;
+  color: #ffffff;
+  border: 1px #808080 solid;
+}
+
+div.pagination-comments ul li.active a:hover {
+  background-color: #808080;
+  color: #ffffff;
+  border: 1px #808080 solid;
+}
+
+div.pagination-schedule-comments {
+  float: left;
+  margin-top: 12px;
+}
+
+div.pagination-schedule-comments ul li a {
+  margin-right: 4px;
+}
+
+div.pagination-schedule-comments ul li a {
+  background-color: #ffffff;
+  color: #808080;
+  border: 1px #808080 solid;
+}
+
+div.pagination-schedule-comments ul li a:hover {
+  background-color: #d3d3d3;
+  color: #808080;
+  border: 1px #808080 solid;
+}
+
+div.pagination-schedule-comments ul li.disabled a {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedule-comments ul li.disabled a:hover {
+  background-color: #ffffff;
+  color: #c0c0c0;
+  border: 1px #c0c0c0 solid;
+}
+
+div.pagination-schedule-comments ul li.active a {
+  background-color: #808080;
+  color: #ffffff;
+  border: 1px #808080 solid;
+}
+
+div.pagination-schedule-comments ul li.active a:hover {
+  background-color: #808080;
+  color: #ffffff;
+  border: 1px #808080 solid;
+}
+
+div.register-comment-header {
+  width :916px;
+  margin-top: 30px;
+  float: left;
+}
+
+div.register-comment-header-inner {
+  color: #808080;
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+div.register-comment {
+  width: 916px;
+  margin-top: 12px;
+  float: left;
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+form.new_comment {
+  margin-bottom: 8px;
+}
+
+table tr td.register-comment-img {
+  width: 78px;
+  vertical-align: top;
+  a {
+    margin-right: 8px;
+  }
+}
+
+div.register-comment-child {
+  margin-top: 6px;
+}
+
+table tr td.register-comment-child-img {
+  width: 46px;
+  vertical-align: top;
+  a {
+    margin-right: 8px;
+  }
+}
+
+textarea#comment_content {
+  width: 830px;
+  padding: 0px;
+  margin: 0px;
+}
+
+textarea#schedule_comment_content {
+  width: 830px;
+  padding: 0px;
+  margin: 0px;
+}
+
+textarea.comment_child_content {
+  width: 770px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.btn-register-comment {
+  margin-top: 12px;
+}
+
+div.comment {
+  width: 916px;
+  margin-top: 12px;
+  float: left;
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+table.comment {
+  margin-bottom: 12px;
+}
+
+table tr td.comment-content {
+  width: 838px;
+  vertical-align: top;
+}
+
+div.comment-content-inner {
+  margin-top: 6px;
+}
+
+div.comment-created-at {
+  margin-top: 6px;
+}
+
+span.comment-created-at {
+  color: #a9a9a9;
+}
+
+a.delete-comment {
+  margin-left: 8px;
+}
+
+div.comment-child {
+  margin-top: 6px;
+  background-color: #f5f5f5;
+}
+
+div.comment-child-inner {
+  padding-top: 2px;
+  padding-right: 8px;
+  padding-bottom: 2px;
+  padding-left: 8px;
+}
+
+table tr td.comment-child-img {
+  vertical-align: top;
+  width: 46px;
+}
+
+table tr td.comment-child-content {
+  vertical-align: top;
+}
+
+div.comment-child-row {
+  margin-top: 6px;
+}
+
+div.comment-child-bar {
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+table.comment-child-row {
+  margin-bottom: 4px;
+}
+
+a.comment-top {
+  border-bottom: none;
+  color: #808080;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+a.comment-top:hover {
+  color: #808080;
+}
+
+a.schedule-top-top {
+  border-bottom: none;
+  color: #000000;
+}
+
+a.schedule-top-top {
+  border-bottom: none;
+  color: #000000;
+}
+
+div.payment {
+  width: 640px;
+  height: 360px;
+  background-color: #f2f2f2;
+}
+
+div.payment-inner {
+  padding: 12px;
+}
+
+span.payment {
+  font-size: 15px;
+}
+
+div.pay-with-paypal {
+  margin-top: 18px;
+}
+
+span.pay-with-paypal {
+  font-size: 15px;
+  font-weight: bold;
+  border-bottom: 1px #000000 solid
+}
+
+div.pay-with-paypal-submit {
+  margin-top: 6px;
+}
+
+a.paypal-submit {
+  border: 0px;
+}
+
+table tr td.confirmation_of_payment {
+  width: 150px;
+}
+
+div.payment-login {
+  margin-top: 18px;
+}
+
+div.video-header {
+  width: 916px;
+  float: left;
+}
+
+div.video-header-left {
+  width: 640px;
+  float: left;
+}
+
+div.video-header-right {
+  width: 260px;
+  float: left;
+  margin-left: 16px;
+}
+
+table tr td.payment-info {
+  width: 60px;
+}
+
+.text-red {
+  color:  #ff0000;
+}
+
+.schedules-header {
+  border-bottom: 1px #000000 solid;
+}
+
+div.top-schedules {
+  background-color: #ede1c4;
+  margin-top: 12px;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 1px;
+  padding-bottom: 11px;
+}
+
+div.top-schedule-register {
+  background-color: #ede1c4;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+span.detail-conversation {
+  border-bottom: 1px #000000 solid;
+}
+
+div.detail-conversation {
+  background-color: #ede1c4;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+div.detail-conversation-inner {
+  background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+span.register-schedule-comment {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+div.register-schedule-comment {
+  color: #808080;
+  border-bottom: 1px #d3d3d3 solid;
+  margin-top: 24px;
+}
+
+div.register-schedule-comment-body {
+  margin-top: 12px;
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+div.schedule-comment-row {
+  margin-top: 12px;
+  border-bottom: 1px #d3d3d3 solid;
+}
+
+div.schedule-comments {
+  float: left;
+}
+
+a.schedule-comment-top {
+  color: #808080;
+  border-bottom: none;
+}
+
+a.schedule-comment-top:hover {
+  color: #808080;
+  border-bottom: none;
 }
 
 // Set the correct sprite paths

@@ -1,0 +1,25 @@
+<%= form_for @schedule_comment, :html => {:onsubmit => "register_schedule_comment(this, '" + t("error_message_ajax") + "', " + StatusCodes::INVALID_PARAMETERS.to_s + "); return false;"} do |form| %>
+  <% unless @schedule_comment.errors.empty? %>
+    <ul class="error">
+      <% @schedule_comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <table>
+      <tr>
+        <td class="register-comment-img">
+          <a href="/users/<%= @login_user.facebook_id %>" class="img">
+            <%= facebook_profile_image_tag(@login_user.facebook_id + ".jpg", :width => 70, :height => 70, :crop => :fill, :gravity => :north_west) %>
+          </a>
+        </td>
+        <td>
+          <%= form.text_area :content, rows: 4 %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%= form.hidden_field :schedule_id %>
+  <%= form.submit t("register"), :class => "btn btn-primary btn-register-comment" %>
+<% end %>

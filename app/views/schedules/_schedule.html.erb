@@ -1,0 +1,111 @@
+<table>
+  <tbody>
+    <tr>
+      <td class="schedule-image">
+        <div>
+          <a href="/users/<%= schedule.user.facebook_id %>" class="img">
+            <%= facebook_profile_image_tag(schedule.user.facebook_id + ".jpg", :width => 90, :height => 90, :crop => :fill, :gravity => :north_west) %>
+          </a>
+        </div>
+        <div class="schedule-user">
+          <%= link_to schedule.user.user_name, "/users/" + schedule.user.facebook_id %>
+        </div>
+      </td>
+      <td class="schedule-content">
+        <div class="schedule-time">
+          <%= schedule.schedule_time(@login_user) %>
+        </div>
+        <div class="schedule-label">
+          <%= t("activerecord.attributes.schedule.lesson_id") %>
+        </div>
+        <div>
+          <%= link_to schedule.lesson.full_lesson_name, "/lessons/" + schedule.lesson.id.to_s if schedule.lesson_id.present? %>
+          <%= t("lesson_nashi_free_talk") if schedule.lesson_id.blank? %>
+        </div>
+        <div class="schedule-label">
+          <%= t("activerecord.attributes.schedule.conversation_form_id") %>
+        </div>
+        <div>
+          <%= schedule.conversation_form.name %>
+        </div>
+        <% if schedule.conversation_form_id == ConversationForm::FACE_TO_FACE %>
+          <div class="schedule-label">
+            <%= t("location") %>
+          </div>
+          <div>
+            <%= link_to(schedule.location_name, schedule.location_reference_url, :target => "_blank") if schedule.location_reference_url.present? %><%= t("beginning_parenthesis") + schedule.location_prefecture.name + t("ending_parenthesis") if schedule.location_reference_url.present? %>
+            <%= schedule.location_name + t("beginning_parenthesis") + schedule.location_prefecture.name + t("ending_parenthesis") if schedule.location_reference_url.blank? %>
+          </div>
+        <% end %>
+        <% if schedule.message.present? %>
+          <div class="schedule-label">
+            <%= t("activerecord.attributes.schedule.message") %>
+          </div>
+          <div>
+            <%= h(schedule.message).gsub("\n", "<br>").html_safe %>
+          </div>
+        <% end %>
+        <div class="delete-schedule">
+          <%= link_to t("detail"), "/schedules/" + schedule.id.to_s, :class => "btn btn-primary btn-detail-schedule" if !is_detail %>
+          <% if @login_user.present? && schedule.user_id == @login_user.id %>
+            <%= link_to t("delete_schedule"), "", :class => "btn btn-inverse btn-delete-schedule", :onclick => "delete_schedule('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_schedule") +"'); return false;" if !is_top && !is_top_history && !is_detail %>
+            <%= link_to t("delete_schedule"), "", :class => "btn btn-inverse btn-delete-schedule", :onclick => "delete_schedule_top('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_schedule") +"'); return false;" if is_top %>
+            <%= link_to t("delete_schedule"), "", :class => "btn btn-inverse btn-delete-schedule", :onclick => "delete_schedule_top_history('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_delete_schedule") +"'); return false;" if is_top_history %>
+            <% if is_detail %>
+              <%= form_tag("/schedules/delete_schedule_detail") do %>
+                <%= hidden_field_tag "id", schedule.id %>
+                <%= submit_tag t("delete_schedule"), :class => "btn btn-inverse btn-delete-schedule", :confirm => t("confirm_message_delete_schedule") %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </td>
+      <td class="schedule-guests">
+        <div class="schedule-guests">
+          <div class="schedule-guests-header">
+            <%= t("join_guests") + t("beginning_parenthesis") + t("max") + " : " + schedule.maximum_number_of_guests.to_s + " " + t("two_byte_comma") + t("approved") + " : " + schedule.guests.where(guest_status_id: GuestStatus::APPROVED).count.to_s + " " + t("two_byte_comma") + t("applying") + " : " + schedule.guests.where(guest_status_id: GuestStatus::APPLYING).count.to_s + t("ending_parenthesis") %>
+          </div>
+          <% schedule.guests.order("CASE WHEN guests.guest_status_id = " + GuestStatus::APPROVED.to_s + " THEN 1 ELSE 2 END, guests.id").each do |guest| %>
+          <% if guest.guest_status_id == GuestStatus::APPLYING && (@login_user.blank? || (schedule.user_id != @login_user.id && guest.user_id != @login_user.id)) %>
+            <% next %>
+          <% end %>
+          <div class="guest">
+            <table>
+              <tr>
+                <td class="guest-image">
+                  <a href="/users/<%= guest.user.facebook_id %>" class="img">
+                    <%= facebook_profile_image_tag(guest.user.facebook_id + ".jpg", :width => 50, :height => 50, :crop => :fill, :gravity => :north_west) %>
+                  </a>
+                </td>
+                <td class="guest-content">
+                  <div class="guest-content">
+                    <div class="<%= 'bold' if @login_user.present? && @login_user.id == schedule.user_id && guest.guest_status_id == GuestStatus::APPLYING %>">
+                      <%= link_to guest.user.user_name, "/users/" + guest.user.facebook_id %><%= t("beginning_parenthesis") + guest.guest_status.name + t("ending_parenthesis") %>
+                    </div>
+                    <% if @login_user.present? && schedule.user_id == @login_user.id && guest.guest_status_id == GuestStatus::APPLYING && !is_top_history %>
+                      <div class="guest-btns">
+                        <%= link_to t("approve"), "", :class => "btn btn-primary btn-approve", :onclick => "approve_guest_request('#{schedule.id}', '#{guest.id}', '" + t("error_message_ajax") + "', '#{is_top}', '#{is_top_history}', '#{is_detail}'); return false;" %>
+                        <%= link_to t("decline"), "", :class => "btn btn-inverse btn-decline", :onclick => "decline_guest_request('#{schedule.id}', '#{guest.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_decline") +"', '#{is_top}', '#{is_top_history}', '#{is_detail}'); return false;" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div> 
+          <% end %>
+          <div class="apply-for-schedule">
+            <%= link_to t("apply_for_schedule"), "", :class => "btn btn-primary btn-apply-for-schedule", :onclick => "create_guest('#{schedule.id}', '" + t("error_message_ajax") + "', '#{is_top}', '#{is_top_history}', '#{is_detail}'); return false;" if @login_user.present? && schedule.user_id != @login_user.id &&schedule.guests.where(user_id: @login_user.id).count == 0 && schedule.guests.where(guest_status_id: GuestStatus::APPROVED).count < schedule.maximum_number_of_guests && !is_top_history %>
+            <%= link_to t("cancel_application"), "", :class => "btn btn-inverse btn-cancel-application", :onclick => "cancel_guest_request('#{schedule.id}', '" + t("error_message_ajax") + "', '" + t("confirm_message_cancel_application") + "', '#{is_top}', '#{is_top_history}'); return false;" if @login_user.present? && schedule.guests.where(user_id: @login_user.id).count > 0 && !is_top_history && !is_detail %>
+            <% if @login_user.present? && schedule.guests.where(user_id: @login_user.id).count > 0 && !is_top_history && is_detail %>
+              <%= form_tag("/guests/cancel_request_detail") do %>
+                <%= hidden_field_tag "id", schedule.id, :id => "schedule_detail_id" %>
+                <%= submit_tag t("cancel_application"), :class => "btn btn-inverse btn-delete-schedule", :confirm => t("confirm_message_cancel_application") %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

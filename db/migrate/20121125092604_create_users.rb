@@ -12,6 +12,7 @@ class CreateUsers < ActiveRecord::Migration
       t.references :location_country
       t.references :location_prefecture
       t.string :location_city
+      t.references :time_zone
       t.string :email_address
       t.string :telephone_number
       t.string :skype_name
@@ -21,6 +22,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :facebook_link
       t.references :terms_of_service
       t.references :privacy_policy
+      t.boolean :is_email_address_confirmed, null: false, default: false
+      t.string :email_address_confirmation_code
       t.boolean :deleted, null: false, default: false
       t.timestamps
     end

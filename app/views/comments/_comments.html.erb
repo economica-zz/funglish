@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+  <div class="comment" id="comment<%= comment.id.to_s %>">
+    <%= render "comments/comment", :comment => comment %>
+  </div>
+<% end %>
+<%= will_paginate @comments, :class => 'pagination pagination-comments', :param_name => :comment_page, :params => {:lesson_id => @lesson.id}, :renderer => BootstrapPagination::Rails, :previous_label => t("pagination_previous_label"), :next_label => t("pagination_next_label") %>
+<div class="bottom-space">&nbsp;</div>

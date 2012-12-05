@@ -1,0 +1,24 @@
+<h1><%= t("confirmation_of_payment_header") %></h1>
+<p><%= t("confirmation_of_payment").gsub("\n", "<br>").html_safe %></p>
+<table class="table table-bordered table-condensed table-middle">
+  <tbody>
+    <tr>
+      <td class="td-label confirmation_of_payment"><%= t("goods_for_purchase") %></td>
+      <td><%= t("video") + t("beginning_square_bracket") + @lesson.course.name + " " + @lesson.lesson_label + " " + @lesson.name + t("ending_square_bracket") %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("payment_amount") %></td>
+      <td><%= @lesson.price.to_s + t("yen") %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("expiration_date_of_lesson_video_label") %></td>
+      <td><%= t("expiration_date_of_lesson_video") %></td>
+    </tr>
+  </tbody>
+</table>
+<%= form_tag("/paypal/complete") do %>
+  <%= hidden_field_tag "id", @lesson.id.to_s %>
+  <%= hidden_field_tag "token", @token %>
+  <%= hidden_field_tag "payer_id", @payer_id %>
+  <%= submit_tag t("execute_payment"), :class => "btn btn-primary" %>
+<% end %>

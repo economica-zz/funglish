@@ -7,6 +7,7 @@ ja:
   company_outline: "会社概要"
   inquiry: "お問い合わせ"
   copyright: "Copyright &copy; 株式会社Economica All Rights Reserved."
+  app_name_with_kana: "Funglish（ファングリッシュ）"
   name_of_seller_lbl: "販売事業者名"
   name_of_seller_val: "株式会社Economica"
   address_of_seller_lbl: "販売事業者所在地"
@@ -55,7 +56,7 @@ ja:
   logout: "ログアウト"
   account_register: "アカウント登録"
   agree: '<a href="/terms_of_service" target="_blank">利用規約</a>と<a href="/privacy_policy" target="_blank">プライバシーポリシー</a>の内容に同意する。'
-  register: "登録"
+  register: "登録する"
   name: "氏名"
   sei: "（姓）"
   mei: "（名）"
@@ -64,7 +65,7 @@ ja:
   required: "（必須）"
   secret: "（非公開）"
   facebook: "Facebook"
-  edit: "編集"
+  edit: "編集する"
   user_form_explanatioin: |-
     ※ Skypeを利用して他のユーザーと会話を行う方は、「Skype名」欄をご入力ください。
     ※ Google+ハングアウトを利用して他のユーザーと会話を行う方は、「Googleアカウント（Gmailアドレス）」欄をご入力ください。
@@ -74,9 +75,9 @@ ja:
   day: "日"
   profile: "プロフィール"
   beginning_parenthesis: "（"
-  enging_parenthesis: "）"
+  ending_parenthesis: "）"
   edit_profile: "プロフィールの編集"
-  save: "保存"
+  save: "保存する"
   top_main_header: "他の英語学習者と一緒に、楽しく英語を学習しましょう"
   top_main_content_1: |-
     Funglish（ファングリッシュ）は、他の英語学習者と交流しながら、
@@ -86,16 +87,113 @@ ja:
     他の英語学習者と、動画で学んだフレーズを使いながら英会話を
     練習することができます。
   top_main_content_3: |-
-    他の英語学習者と教え合ったり、励まし合ったり、競い合ったり
-    しながら、楽しく英語を学習することができます。
+    ”他の英語学習者と教え合ったり、競い合ったりしながら、楽しく
+    英語を学習したい”、”日常生活の中で英語を話す機会を増やしたい”
+    とお考えの方々へ、最適な英語の学習環境をご提供します。
   top_how_it_works: "Funglish（ファングリッシュ）の使い方"
   how_it_works_1_header: "１．パソコン、スマートフォン、タブレット型端末で英語のレッスン動画を視聴します。"
   how_it_works_2_header: "２．英会話を行いたい空き時間を登録します。または、他の学習者が登録している空き時間に、英会話の予定を申し込みます。"
   how_it_works_3_header: "３．他の学習者とカフェなどで会い、動画で学んだフレーズを使いながら、お互いに英会話を練習します。また、SkypeやGoogle＋ハングアウトを利用して、遠方の学習者と英会話を練習することもできます。"
   top_course_videos: "英語レッスン動画"
-  course_videos_explanation: "各レッスン動画を105円（税込）でご視聴頂けます。（無料でご視聴頂けるレッスン動画も一部ご用意しております。）"
-  detail: "詳細"
-  list_of_videos: "動画一覧"
+  course_videos_explanation: "各レッスン動画を105円（税込）でご視聴頂けます。（無料でご視聴頂けるお試しのレッスン動画もご用意しております。）"
+  detail: "詳細を見る"
+  list_of_lesson_videos: "レッスン動画一覧"
+  lesson: "レッスン"
+  release_scheduled: "配信予定"
+  free: "無料"
+  yen: "円 (税込)"
+  watch: "視聴する"
+  teachers: "講師・出演者"
+  download_materials: "教材のダウンロード"
+  practice_english_conversation: "他の英語学習者と英会話を行い、今回のレッスンで学習した内容を練習する"
+  register_schedule_of_english_conversation: "英会話の予定を登録する"
+  apply_schedule_of_english_conversation: "他の学習者が登録した英会話の予定に参加を申し込む"
+  list_of_complementary_videos: "補足動画一覧"
+  complementary_lesson: "補足"
+  minutes: "分"
+  schedule_location_name_explanation: "カフェの名前、建物名、「●●駅周辺」など、英会話を行う場所の名前をご入力ください。"
+  schedule_location_reference_url_explanation: "英会話を行う場所の地図が掲載されているWebページのURLをご入力ください。"
+  nin: "人"
+  schedule_maximum_number_of_guests_explanation: |-
+    予定の登録者（あなた）を除いた、参加者の最大の人数をご入力ください。（1対1での英会話を希望する場合は、「1人」をご入力ください。）
+    Skypeを用いて3人以上で会話を行う場合、有料の「Skype Premium月額プラン」に加入する必要がありますのでご注意ください。詳細は<a href="http://www.skype.com/intl/ja/features/allfeatures/group-video-calls/" target="_blank">こちら</a>。
+    Google+ハングアウトを用いる場合は、無料で3人以上で（最大10人まで）会話を行うことができます。詳細は<a href="http://www.google.com/intl/ja/+/learnmore/hangouts/" target="_blank">こちら</a>。
+  schedule_message_explanation: "参加ゲストへ向けたメッセージをご入力ください。（「初心者のため、日本語と英語を織り交ぜながらお話ししたいと思います。」など）"
+  error_message_ajax: "エラーが発生しました。時間をおいて再度操作してください。"
+  location: "場所"
+  join_guests: "参加ゲスト"
+  no_schedules_for_display: "表示する予定はありません。"
+  apply_for_schedule: "参加を申し込む"
+  approve: "承認する"
+  decline: "却下する"
+  confirm_message_decline: "参加の申し込みを却下します。よろしいですか？"
+  cancel_application: "参加の申し込みをキャンセルする"
+  confirm_message_cancel_application: "参加の申し込みをキャンセルします。よろしいですか？"
+  delete_schedule: "予定を削除する"
+  confirm_message_delete_schedule: "予定を削除します。よろしいですか？"
+  max: "最大"
+  approved: "承認済"
+  applying: "申請中"
+  two_byte_comma: "、"
+  pagination_previous_label: "前へ"
+  pagination_next_label: "次へ"
+  comment: "コメント"
+  delete_comment: "コメントを削除する"
+  confirm_message_delete_comment: "コメントを削除します。よろしいですか？"
+  comment_explanation: |-
+    レッスン動画の内容で分からないことがありましたら、こちらで他の学習者に質問してみましょう。
+    また、レッスン動画で学んだこと、気づいたこと、感想などをこちらで他の学習者と共有してみましょう。
+  schedule_comment_explanation: |-
+    挨拶や英会話の日時・場所・トピックなど、英会話の相手へ伝えたいことをこちらに登録しましょう。
+  trial_lesson: "お試しレッスン"
+  payment_explanation: |-
+    この動画を視聴するためには、視聴料%{price}円（税込）をお支払い頂く必要がございます。
+    視聴料のお支払い後30日間、この動画をご視聴頂けます。
+  payment_login_explanation: |-
+    この動画を視聴するためには、アカウントを作成し、ログインして頂く必要がございます。
+    以下のリンクをクリックし、アカウントの作成、または、ログインを実施ください。（アカウントの作成にはFacebookのアカウントが必要になります。）
+  pay_with_paypal: "クレジットカードで支払う（PayPalを利用して支払う）"
+  confirmation_of_payment_header: "お支払い内容のご確認"
+  confirmation_of_payment: |-
+    以下の内容で決済を行います。
+    内容をご確認の上、「支払いを実行」ボタンを押してください。
+  execute_payment: "支払いを実行"
+  goods_for_purchase: "購入商品"
+  payment_amount: "支払い金額"
+  expiration_date_of_lesson_video_label: "動画の視聴可能期間"
+  expiration_date_of_lesson_video: "決済後30日間"
+  beginning_square_bracket: "「"
+  ending_square_bracket: "」"
+  video: "動画"
+  payment_complete: "動画の視聴料のお支払いが完了しました。"
+  pay_timestamp: "支払日時"
+  expiration_timestamp: "視聴期限"
+  english_conversation_schedules: "英会話の予定を確認する"
+  english_conversation_schedules_explanation: |-
+    あなたが登録した英会話の予定と、あなたが参加を申し込んだ英会話の予定を表示します。（現時点で終了していない予定のみを表示します。既に終了しているものを閲覧する場合は、「<a href="/history">英会話の履歴を確認する</a>」をご覧ください。）
+  apply_for_others_schedule: "他の学習者の英会話の予定に参加を申し込む"
+  watch_lesson_video: "レッスン動画を視聴する"
+  conversation_history: "英会話の履歴を確認する"
+  apply_for_others_schedule_explanation: "他の学習者が登録した英会話の予定を表示します。"
+  conversation_history_explanation: |-
+    あなたが参加した英会話の履歴を表示します。（既に終了している履歴のみを表示します。現時点で終了していない予定を閲覧する場合は、「<a href="/">英会話の予定を確認する</a>」をご覧ください。）
+  space_zenkaku: "　"
+  watch_lesson_video_explanation: |-
+    ご視聴頂けるレッスンコースを表示します。
+  lesson_nashi_free_talk: "なし（フリートーク）"
+  register_schedule_complete: "予定の登録が完了しました。"
+  detail_conversation: "英会話の詳細"
+  message_email_address_confirmation: "FunglishからのEメールを受信できるよう、<a href='/email_address_confirmation' class='bold'>こちら</a>をクリックしてEメールアドレスの確認を行ってください。"
+  email_address_confirmation_explanation: |- 
+    ご登録頂きましたEメールアドレスへEメールを送信致しました。
+    こちらのEメールに記載されている手順に従い、Eメールアドレスの確認作業を完了させてください。
+  email_address_confirmation_complete: |-
+    ご登録頂きましたEメールアドレスの確認作業が完了致しました。
+    引き続き、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」をご利用ください。
+  time:
+    formats:
+      ymdahm: ! '%Y年%m月%d日(%a) %H:%M'
+      ymdahms: ! '%Y年%m月%d日(%a) %H:%M:%S'
   activerecord:
     attributes:
       user:
@@ -110,12 +208,27 @@ ja:
         location_country_id: "所在地（国）"
         location_prefecture_id: "所在地（都道府県）"
         location_city: "所在地（市区町村）"
+        time_zone_id: "タイムゾーン"
         email_address: "Eメールアドレス"
         telephone_number: "電話番号"
         skype_name: "Skype名"
         google_account: "Googleアカウント（Gmailアドレス）"
         self_introduction: "自己紹介"
         terms_of_service_and_privacy_policy: "利用規約とプライバシーポリシーの内容"
+      schedule:
+        start_timestamp: "開始日時"
+        time: "時間"
+        lesson_id: "練習するレッスン"
+        conversation_form_id: "会話の方法"
+        location_prefecture_id: "場所（都道府県）"
+        location_name: "場所（名前）"
+        location_reference_url: "場所（参考URL）"
+        maximum_number_of_guests: "最大ゲスト数"
+        message: "参加ゲストへのメッセージ"
+      comment:
+        content: "内容"
+      schedule_comment:
+        content: "内容"
     errors:
       messages:
         accepted: "に同意してください。"
@@ -124,3 +237,80 @@ ja:
           attributes:
             email_address:
               email_address_already_exists: "は他のユーザによって既に使用されています。"
+  mailer:
+    email_address_confirmation:
+      subject: "Funglishへご登録頂いたEメールアドレスのご確認"
+      content: |-
+        ※本メールは、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」のメールサーバより自動的に送信されています。
+
+        この度は、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」のアカウントをご登録くださいまして、誠にありがとうございます。
+
+        以下のページを開き、ご登録くださいましたEメールアドレスの確認作業を完了させてください。
+
+        %{root_url}email_address_confirmation/complete/%{facebook_id}/%{email_address_confirmation_code}
+
+        何卒宜しくお願い申し上げます。
+
+
+        ソーシャル英語学習サービス「Funglish（ファングリッシュ）」
+        http://funglish.jp
+        info@funglish.jp
+    schedule_applied:
+      subject: "ご登録頂いた予定への参加申し込みのご連絡"
+      content: |-
+        ※本メールは、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」のメールサーバより自動的に送信されています。
+
+        平素は、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」をご利用くださいまして、誠にありがとうございます。
+
+        あなたの英会話の予定（%{schedule_time}）に、参加の申し込みがありました。
+
+        以下のページを開き、「承認する」、「却下する」のいずれかをご選択ください。
+
+        %{root_url}schedules/%{schedule_id}
+
+        何卒宜しくお願い申し上げます。
+
+
+        ソーシャル英語学習サービス「Funglish（ファングリッシュ）」
+        http://funglish.jp
+        info@funglish.jp
+    schedule_approved:
+      subject: "参加申し込みの承認のご連絡"
+      content: |-
+        ※本メールは、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」のメールサーバより自動的に送信されています。
+
+        平素は、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」をご利用くださいまして、誠にありがとうございます。
+
+        英会話の予定（%{schedule_time}）へのあなたの参加申し込みが承認されました。
+
+        以下のページを開き、予定をご確認ください。
+
+        %{root_url}schedules/%{schedule_id}
+
+
+        何卒宜しくお願い申し上げます。
+
+
+        ソーシャル英語学習サービス「Funglish（ファングリッシュ）」
+        http://funglish.jp
+        info@funglish.jp
+    schedule_comment_posted:
+      subject: "コメント登録のご連絡"
+      content: |-
+        ※本メールは、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」のメールサーバより自動的に送信されています。
+
+        平素は、ソーシャル英語学習サービス「Funglish（ファングリッシュ）」をご利用くださいまして、誠にありがとうございます。
+
+        あなたが参加予定の英会話（%{schedule_time}）に関して、英会話の相手がコメントを登録しました。
+
+        以下のページを開き、コメントの内容をご確認ください。
+
+        %{root_url}schedules/%{schedule_id}
+
+
+        何卒宜しくお願い申し上げます。
+
+
+        ソーシャル英語学習サービス「Funglish（ファングリッシュ）」
+        http://funglish.jp
+        info@funglish.jp

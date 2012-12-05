@@ -15,25 +15,40 @@
     </tbody>
   </table>
 </div>
-<div class="videos-teachers">
-  <table class="videos-teachers">
-    <tbody>
-      <tr>
-        <td class="videos">
-          <div class="videos">
-            <div class="videos-inner">
-              <span class="videos"><%= t("list_of_videos") %></span>
-              <table>
-                
-              </table>
-            </div>
-          </div>
-        </td>
-        <td class="videos-teachers-space">
-        </td>
-        <td class="teachers">
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="teachers">
+  <div class="teachers-inner">
+    <div><span class="teachers"><%= t("teachers") %></span></div>
+    <% i = 0 %>
+    <% @teachers.each do |teacher| %>
+      <% i = i + 1 %>
+      <% if i % 2 == 1 %>
+        <div class="teachers-row">
+      <% end %>
+      <div class="teacher <%= "teacher-right" if i % 2 == 0 %>">
+        <table class="teacher">
+          <tbody>
+            <tr>
+              <td class="teacher-image">
+                <%= cl_image_tag(teacher.cloudinary_public_id + ".jpg", :width => 140, :height => 140, :crop => :fill) %>
+              </td>
+              <td class="teacher-description">
+                <div class="teacher-description-inner">
+                  <h2 class="teacher-name"><%= teacher.name %></h2>
+                  <p><%= teacher.description %></p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <% if i % 2 == 0 %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if i % 2 == 1 %>
+      </div>
+    <% end %>
+  </div>
 </div>
+<%= render "lessons/lessons", title: t("list_of_lesson_videos") %>
+<div>&nbsp;</div>

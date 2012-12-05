@@ -1,0 +1,56 @@
+<div>
+  <span class="practice-english-conversation"><%= t("practice_english_conversation") %>
+</div>
+<div class="register-schedule-header">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <a href="" class="img" onclick="control_display('register-schedule-display-control'); return false;">
+            <%= image_tag("notepencil32.png", size: "20x20", alt: "Register Schedule") %>
+          </a>
+        </td>
+        <td>
+          <span class="register-schedule-header">
+            <%= link_to t("register_schedule_of_english_conversation"), "",  :onclick => "control_display('register-schedule-display-control'); return false;" %>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="display-none" id="register-schedule-display-control">
+  <div class="register-schedule">
+    <div class="register-schedule-inner" id="register-schedule-inner">
+      <%= render "/schedules/register_schedule", is_top: false if @login_user.present? %>
+      <%= render "/layouts/login_signup" if @login_user.blank? %>
+    </div>
+  </div>
+</div>
+<div class="apply-schedule-header">
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <a href="" class="img" onclick="control_display('apply-schedule-display-control'); return false;">
+            <%= image_tag("notecheck32.png", size: "20x20", alt: "Apply Schedule") %>
+          </a>
+        </td>
+        <td>
+          <span class="apply-schedule-header">
+            <%= link_to t("apply_schedule_of_english_conversation"), "",  :onclick => "control_display('apply-schedule-display-control'); return false;", :name => "schedule-top" %>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="display-none" id="apply-schedule-display-control">
+  <div class="apply-schedule">
+    <div class="apply-schedule-inner" id="apply-schedule-inner">
+      <%= render "/schedules/apply_schedule" if @login_user.present? %>
+      <%= render "/layouts/login_signup" if @login_user.blank? %>
+    </div>
+  </div>
+</div>
+

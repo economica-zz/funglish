@@ -33,6 +33,10 @@
       <td class="td-label"><%= t("activerecord.attributes.user.location_city") %></td>
       <td><%= @user.location_city %></td>
     </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.time_zone_id") %></td>
+      <td><%= @user.time_zone.name_for_disp %></td>
+    </tr>
     <% if @is_show_login_user %>
       <tr>
         <td class="td-label">

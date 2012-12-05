@@ -3,6 +3,7 @@
   country_choices = Utils.get_choices("Country", "id")
   occupation_choices = Utils.get_choices("Occupation", "disp_seq")
   prefecture_choices = Utils.get_choices("Prefecture", "id")
+  time_zone_choices = TimeZone.get_choices
 %>
 <% unless @user.errors.empty? %>
   <ul class="error">
@@ -32,7 +33,7 @@
     </tr>
     <tr>
       <td class="td-label"><%= t("activerecord.attributes.user.birthday") %></td>
-      <td colspan="4"><%= form.date_select :birthday, {start_year: 1900, end_year: (Time.now.year + 1), :order => [:year, :month, :day], :prompt => {:year => t("year"), :month => t("month"), :day => t("day")}, use_month_numbers: true} %></td>
+      <td colspan="4"><%= form.date_select :birthday, {start_year: 1900, end_year: (Time.current.in_time_zone("Tokyo").year + 1), :order => [:year, :month, :day], :prompt => {:year => t("year"), :month => t("month"), :day => t("day")}, use_month_numbers: true} %></td>
     </tr>
     <tr>
       <td class="td-label"><%= t("activerecord.attributes.user.nationality_country_id") %><span class="required"><%= t("required") %></span></td>
@@ -53,6 +54,10 @@
     <tr>
       <td class="td-label"><%= t("activerecord.attributes.user.location_city") %></td>
       <td colspan="4"><%= form.text_field :location_city %></td>
+    </tr>
+    <tr>
+      <td class="td-label"><%= t("activerecord.attributes.user.time_zone_id") %><span class="required"><%= t("required") %></span></td>
+      <td colspan="4"><%= form.select :time_zone_id, time_zone_choices, {:include_blank => true} %></td>
     </tr>
     <tr>
       <td class="td-label">
