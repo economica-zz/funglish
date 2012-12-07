@@ -8,6 +8,7 @@ ja:
   inquiry: "お問い合わせ"
   copyright: "Copyright &copy; 株式会社Economica All Rights Reserved."
   app_name_with_kana: "Funglish（ファングリッシュ）"
+  locale_str: "ja_JP"
   name_of_seller_lbl: "販売事業者名"
   name_of_seller_val: "株式会社Economica"
   address_of_seller_lbl: "販売事業者所在地"
