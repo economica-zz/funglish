@@ -1107,7 +1107,7 @@ ActiveRecord::Base.connection.execute("TRUNCATE courses")
 ActiveRecord::Base.connection.reset_pk_sequence!("courses")
 Course.create(name: "日常会話で学ぶ英語の基礎", description: "日常会話で使用されるフレーズを学びながら、発音、文法、単語、熟語などの英語の基礎を習得することができます。
 
-英語の初心者の方や、英語を基礎から勉強し直したいと考えている方におすすめのレッスンです。", youtube_src: "http://www.youtube.com/embed/yPnCT8_8jOw?rel=0", cloudinary_public_id: "course1_001", deleted: false)
+英語の初心者の方や、英語を基礎から勉強し直したいと考えている方におすすめのレッスンです。", youtube_src: "http://www.youtube.com/embed/KlwHWSON_k4?rel=0", cloudinary_public_id: "course1_002", deleted: false)
 ActiveRecord::Base.connection.execute("VACUUM ANALYZE courses")
 
 ActiveRecord::Base.connection.execute("TRUNCATE lessons")
@@ -1122,8 +1122,8 @@ ActiveRecord::Base.connection.execute("VACUUM ANALYZE lessons")
 
 ActiveRecord::Base.connection.execute("TRUNCATE teachers")
 ActiveRecord::Base.connection.reset_pk_sequence!("teachers")
-Teacher.create(course_id: 1, name: "Diego Diaz", cloudinary_public_id: "course1_teacher1_001", description: "", deleted: false)
-Teacher.create(course_id: 1, name: "馬場 彩月（ばば さづき）", cloudinary_public_id: "course1_teacher2_001", description: "", deleted: false)
+Teacher.create(course_id: 1, name: "Diego Diaz", cloudinary_public_id: "course1_teacher1_002", description: "", deleted: false)
+Teacher.create(course_id: 1, name: "馬場 彩月（ばば さづき）", cloudinary_public_id: "course1_teacher2_002", description: "", deleted: false)
 ActiveRecord::Base.connection.execute("VACUUM ANALYZE teachers")
 
 ActiveRecord::Base.connection.execute("TRUNCATE materials")
