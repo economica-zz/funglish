@@ -25,7 +25,7 @@
               <tr>
                 <td class="lesson-image">
                   <a href="/lessons/<%= lesson.id.to_s %>">
-                    <%= cl_image_tag(lesson.cloudinary_public_id + ".jpg", :width => 140, :height => 140, :crop => :fill) %>
+                    <%= cl_image_tag(lesson.cloudinary_public_id + ".jpg", :width => 140, :height => 140, :crop => :pad, :background => "#000000") %>
                   </a>
                 </td>
                 <td colspan="2" class="lesson-description">
