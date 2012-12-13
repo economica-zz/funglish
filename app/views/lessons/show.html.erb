@@ -57,7 +57,7 @@
 <div class="video-materials">
   <div class="video">
     <% if @auth_status_id == AuthStatus::OK %>
-      <video id="video" width="640" height="360" controls autoplay onclick="if(this.currentTime == 0){this.play();}">
+      <video id="video" width="640" height="360" controls autoplay <%= "onclick='this.play();'" if request.env["HTTP_USER_AGENT"].present? && request.env["HTTP_USER_AGENT"].include?("Android") %>>
         <source src="<%= @panda_video_webm_url %>" type="video/webm">
         <source src="<%= @panda_video_ogg_url %>" type="video/ogg">
         <source src="<%= @panda_video_h264_url %>" type="video/mp4">
