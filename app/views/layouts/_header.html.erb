@@ -1,6 +1,18 @@
 <div class="header-wrapper">
   <div class="header-content">
-    <span class="header-title"><%= link_to t("header_title"), root_path %></span>
+    <span class="header-title" style="float:left;"><%= link_to t("header_title"), root_path %></span>
+    <span class="header-left">
+      <table class="table-middle table-header">
+        <tr>
+          <td>
+            <%= link_to t("blog"), "http://blog.funglish.jp", :target => "_blank", :class => "header-link" %>
+          </td>
+          <td>
+            <%= link_to t("facebook_page"), "http://www.facebook.com/pages/Funglish/178962315576676", :target => "_blank", :class => "header-link" %>
+          </td>
+        </tr>
+      </table>
+    </span>
     <span class="header-right">
       <table class="table-middle table-header">
         <tr>

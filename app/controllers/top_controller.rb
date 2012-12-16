@@ -16,6 +16,7 @@ class TopController < ApplicationController
 
   def register
     @schedule = LessonsController.get_initial_schedule(nil, @login_user)
+    @active_tab = "register"
   end
 
   def lesson
