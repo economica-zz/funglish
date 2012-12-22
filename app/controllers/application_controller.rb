@@ -3,11 +3,17 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter :authorize
+  before_filter :check_url, :authorize
 
   class Forbidden < StandardError; end
 
   private
+  def check_url
+    if(root_url.present? && (root_url == "http://funglish.jp/" || root_url == "https://funglish.jp/" || root_url == "http://www.funglish.jp/"))
+      redirect_to "https://www.funglish.jp" + request.path_info
+    end
+  end
+
   def authorize
     facebook_id = session[:facebook_id]
 
