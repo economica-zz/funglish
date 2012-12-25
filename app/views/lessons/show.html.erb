@@ -84,46 +84,48 @@
       </div>
     <% end %>
   </div>
-  <div class="materials">
-    <div class="materials-inner">
-      <div>
-        <table class="download-materials">
-          <tbody>
-            <tr>
-              <td>
-                <span class="download-materials"><%= t("download_materials") %></span>
-              </td>
-              <td class="download-materials-price">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <% @lesson_materials.each do |lesson_material| %>
-          <div class="lesson-material">
-            <div>
-              <table>
-                <tbody>
-                  <tr>
-                    <td class="material-icon">
-                      <a href="/lesson_materials/download_file/<%= lesson_material.id.to_s %>" class="material-icon" target="_blank">
-                        <%= image_tag(lesson_material.material.icon_file_name, size: "20x20", alt: "Material Icon") %>
-                      </a>
-                    </td>
-                    <td>
-                      <%= link_to lesson_material.material.name, "/lesson_materials/download_file/" + lesson_material.id.to_s, :class => "material-name", :target => "_blank" %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+  <% if @auth_status_id == AuthStatus::OK %>
+    <div class="materials">
+      <div class="materials-inner">
+        <div>
+          <table class="download-materials">
+            <tbody>
+              <tr>
+                <td>
+                  <span class="download-materials"><%= t("download_materials") %></span>
+                </td>
+                <td class="download-materials-price">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <% @lesson_materials.each do |lesson_material| %>
+            <div class="lesson-material">
+              <div>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="material-icon">
+                        <a href="/lesson_materials/download_file/<%= lesson_material.id.to_s %>" class="material-icon" target="_blank">
+                          <%= image_tag(lesson_material.material.icon_file_name, size: "20x20", alt: "Material Icon") %>
+                        </a>
+                      </td>
+                      <td>
+                        <%= link_to lesson_material.material.name, "/lesson_materials/download_file/" + lesson_material.id.to_s, :class => "material-name", :target => "_blank" %>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="material-description">
+                <%= lesson_material.material.description.gsub("\n", "<br>").html_safe %>
+              </div>
             </div>
-            <div class="material-description">
-              <%= lesson_material.material.description.gsub("\n", "<br>").html_safe %>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
 <div class="fb-like fb-like-lesson" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 <%= render "lessons/lessons", title: t("list_of_complementary_videos") %>
